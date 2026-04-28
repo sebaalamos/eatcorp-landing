@@ -15,7 +15,7 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: 'Starter',
-    monthly: 29000,
+    monthly: 1,
     description: 'Para restaurantes que recién empiezan',
     features: [
       '2 apps a elección',
@@ -29,7 +29,7 @@ const plans: Plan[] = [
   },
   {
     name: 'Pro',
-    monthly: 79000,
+    monthly: 2.5,
     description: 'El más elegido por nuestros clientes',
     popular: true,
     features: [
@@ -67,7 +67,7 @@ const plans: Plan[] = [
 export function Pricing() {
   const [annual, setAnnual] = useState(true)
 
-  const formatCLP = (n: number) => `$${n.toLocaleString('es-CL')}`
+  const formatUF = (n: number) => n.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 2 })
 
   return (
     <section id="pricing" className="py-24 px-4 bg-slate-50">
@@ -142,15 +142,15 @@ export function Pricing() {
                       <>
                         <div className="flex items-baseline gap-1">
                           <span className={`text-4xl font-bold tabular-nums ${plan.popular ? 'text-white' : 'text-slate-900'}`}>
-                            {formatCLP(price)}
+                            {formatUF(price)}
                           </span>
                           <span className={`text-sm ${plan.popular ? 'text-slate-400' : 'text-slate-500'}`}>
-                            /mes
+                            UF/mes
                           </span>
                         </div>
                         {annual && (
                           <div className={`text-xs mt-1 ${plan.popular ? 'text-emerald-400' : 'text-emerald-700'}`}>
-                            Facturado anualmente · Ahorra {formatCLP(plan.monthly * 12 * 0.2)} al año
+                            Facturado anualmente · Ahorra {formatUF(plan.monthly * 12 * 0.2)} UF al año
                           </div>
                         )}
                       </>
