@@ -10,7 +10,7 @@ type Stat = {
 }
 
 const stats: Stat[] = [
-  { value: 50, suffix: '+', label: 'Restaurantes activos' },
+  { value: 50, suffix: '+', label: 'Restoranes activos' },
   { value: 12000, suffix: '+', label: 'Facturas procesadas' },
   { value: 30, suffix: 'hrs', label: 'Ahorradas/mes en promedio' },
   { value: 97, suffix: '%', label: 'Retención mensual' },

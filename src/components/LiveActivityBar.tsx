@@ -1,16 +1,19 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Package, CheckCircle2, Sparkles, Wrench, Banknote, Users, Camera, Zap } from 'lucide-react'
 
-const messages = [
-  { icon: '📦', text: 'El Toro aprobó factura $480.500' },
-  { icon: '✅', text: '24 tareas completadas hoy en TaskEat' },
-  { icon: '✨', text: 'Tigre publicó 8 posts esta semana' },
-  { icon: '🔧', text: 'MaintainEat agendó 3 mantenciones preventivas' },
-  { icon: '💰', text: 'Lote de pago $2.4M ejecutado en BuyEat' },
-  { icon: '👥', text: '2 nuevos miembros se unieron a El Toro' },
-  { icon: '📸', text: 'Magic Post generó caption para Tigre en 4 segundos' },
-  { icon: '⚡', text: 'Discrepancia detectada y resuelta automáticamente' },
+type Message = { Icon: React.ElementType; text: string }
+
+const messages: Message[] = [
+  { Icon: Package, text: 'El Toro aprobó factura $480.500' },
+  { Icon: CheckCircle2, text: '24 tareas completadas hoy en TaskEat' },
+  { Icon: Sparkles, text: 'Tigre publicó 8 posts esta semana' },
+  { Icon: Wrench, text: 'MaintainEat agendó 3 mantenciones preventivas' },
+  { Icon: Banknote, text: 'Lote de pago $2.4M ejecutado en BuyEat' },
+  { Icon: Users, text: '2 nuevos miembros se unieron a El Toro' },
+  { Icon: Camera, text: 'Magic Post generó caption para Tigre en 4 segundos' },
+  { Icon: Zap, text: 'Discrepancia detectada y resuelta automáticamente' },
 ]
 
 const SAVED_BASE = 18_420_000
@@ -51,7 +54,7 @@ export function LiveActivityBar() {
                   i === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                 }`}
               >
-                <span className="text-base">{m.icon}</span>
+                <m.Icon size={14} className="text-primary-400 flex-shrink-0" />
                 <span className="truncate">{m.text}</span>
               </div>
             ))}

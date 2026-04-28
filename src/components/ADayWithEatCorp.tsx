@@ -1,4 +1,4 @@
-import { Truck, CheckSquare, ChefHat, Camera, Wrench, Sparkles, AlertTriangle } from 'lucide-react'
+import { Truck, CheckSquare, ChefHat, Camera, Wrench, Sparkles, AlertTriangle, Wine } from 'lucide-react'
 
 type Moment = {
   time: string
@@ -198,8 +198,8 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
     return (
       <div className="border-t border-slate-700 bg-gradient-to-br from-pink-500/10 to-transparent px-4 py-3">
         <div className="flex gap-2.5">
-          <div className="w-12 h-12 rounded-md bg-gradient-to-br from-amber-400 to-rose-500 flex items-center justify-center text-2xl flex-shrink-0 shadow-md shadow-pink-500/30">
-            🍷
+          <div className="w-12 h-12 rounded-md bg-gradient-to-br from-amber-400 to-rose-500 flex items-center justify-center flex-shrink-0 shadow-md shadow-pink-500/30">
+            <Wine size={22} className="text-white" />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 mb-1">
@@ -207,7 +207,7 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
               <span className="text-[9px] font-bold uppercase text-pink-300">Generando…</span>
             </div>
             <div className="text-[10px] text-slate-200 leading-snug line-clamp-2">
-              &ldquo;Esta noche, una copa que abraza. Reservas mesa para hoy en Tigre 🍷&rdquo;
+              &ldquo;Esta noche, una copa que abraza. Reservas mesa para hoy en Tigre&rdquo;
             </div>
             <div className="flex gap-1 mt-1">
               <span className="text-[9px] text-pink-400">#tigre</span>

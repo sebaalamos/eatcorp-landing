@@ -1,3 +1,4 @@
+import { Leaf } from 'lucide-react'
 import { Logo } from './Logo'
 import { Newsletter } from './Newsletter'
 
@@ -45,7 +46,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-brand-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>&copy; {currentYear} EatCorp. Hecho en Chile con 🌱.</p>
+          <p className="flex items-center gap-1.5">&copy; {currentYear} EatCorp. Hecho en Chile con <Leaf size={13} className="text-primary-400" />.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition">Instagram</a>
             <a href="#" className="hover:text-white transition">LinkedIn</a>

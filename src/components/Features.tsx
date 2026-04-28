@@ -1,4 +1,4 @@
-import { ShoppingCart, CheckSquare, Share2, Wrench, Sparkles, RotateCw, AlertTriangle, Heart, MessageCircle, Send, Bookmark, BadgeCheck } from 'lucide-react'
+import { ShoppingCart, CheckSquare, Share2, Wrench, Sparkles, RotateCw, AlertTriangle, Heart, MessageCircle, Send, Bookmark, BadgeCheck, Camera, Wine } from 'lucide-react'
 
 export function Features() {
   return (
@@ -266,13 +266,13 @@ function TaskEatMockup() {
 
 function LikeEatMockup() {
   const week = [
-    { d: 'L', emoji: '🥗', label: 'Bowl' },
-    { d: 'M', emoji: '🍝', label: 'Pasta', active: true },
-    { d: 'M', emoji: '🥩', label: 'Asado' },
-    { d: 'J', emoji: '🍷', label: 'Maridaje' },
-    { d: 'V', emoji: '🌶️', label: 'Picante', special: '18-S' },
-    { d: 'S', emoji: '🥟', label: 'Empanada' },
-    { d: 'D', emoji: '🍳', label: 'Brunch' },
+    { d: 'L', color: 'bg-green-400', label: 'Bowl' },
+    { d: 'M', color: 'bg-orange-400', label: 'Pasta', active: true },
+    { d: 'M', color: 'bg-red-400', label: 'Asado' },
+    { d: 'J', color: 'bg-rose-400', label: 'Maridaje' },
+    { d: 'V', color: 'bg-amber-400', label: 'Picante', special: '18-S' },
+    { d: 'S', color: 'bg-yellow-400', label: 'Empanada' },
+    { d: 'D', color: 'bg-blue-400', label: 'Brunch' },
   ]
 
   return (
@@ -313,7 +313,7 @@ function LikeEatMockup() {
               }`}
             >
               <div className="text-[8px] font-bold text-slate-400 uppercase">{day.d}</div>
-              <div className="text-base leading-none">{day.emoji}</div>
+              <div className={`w-3 h-3 rounded-sm ${day.color}`}></div>
               <div className="text-[7px] text-slate-500 truncate max-w-full px-0.5">{day.label}</div>
               {day.special && (
                 <div className="absolute -top-1 -right-0.5 text-[7px] font-bold bg-amber-400 text-amber-900 px-0.5 py-px rounded-sm leading-none">
@@ -341,7 +341,7 @@ function LikeEatMockup() {
             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.45)_50%,transparent_70%)] bg-[length:200%_100%] animate-[shimmer_2.4s_ease-in-out_infinite] pointer-events-none"></div>
 
             <div className="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-brand-950/85 backdrop-blur text-[9px] font-bold text-slate-200">
-              <span className="text-pink-400">📷</span>
+              <Camera size={9} className="text-pink-400" />
               <span>Reel</span>
             </div>
             <button className="absolute top-2 right-2 w-7 h-7 rounded-full bg-brand-950/85 backdrop-blur flex items-center justify-center shadow-sm border border-slate-700">
@@ -368,7 +368,7 @@ function LikeEatMockup() {
             </div>
             <div className="text-[10px] font-bold text-slate-100">312 me gusta</div>
             <div className="text-[10px] text-slate-300 leading-snug mt-0.5">
-              <span className="font-bold">eltoro_restaurante</span> Pasta fresca, salsa de la nona y un vino que abraza. ¿Reservas mesa para esta noche? 🍷
+              <span className="font-bold">eltoro_restaurante</span> Pasta fresca, salsa de la nona y un vino que abraza. ¿Reservas mesa para esta noche?
             </div>
             <div className="flex flex-wrap gap-1 mt-1">
               <span className="text-[10px] text-pink-400">#pastafresca</span>

@@ -1,6 +1,6 @@
 'use client'
 
-import { ShoppingCart, CheckSquare, Share2, Wrench, Calendar, Users } from 'lucide-react'
+import { ShoppingCart, CheckSquare, Share2, Wrench, Calendar, Users, Camera } from 'lucide-react'
 
 type AppDef = {
   id: string
@@ -142,7 +142,9 @@ function KanbanPreview() {
 function PostPreview() {
   return (
     <div className="flex gap-1.5 h-full">
-      <div className="aspect-square h-full rounded bg-gradient-to-br from-amber-200 to-rose-300 flex items-center justify-center text-xs">📸</div>
+      <div className="aspect-square h-full rounded bg-gradient-to-br from-amber-200 to-rose-300 flex items-center justify-center flex-shrink-0">
+          <Camera size={10} className="text-rose-700" />
+        </div>
       <div className="flex-1 space-y-1 pt-1">
         <div className="h-1 bg-pink-300 rounded w-full"></div>
         <div className="h-1 bg-pink-200 rounded w-3/4"></div>
