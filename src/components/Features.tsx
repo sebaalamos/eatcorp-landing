@@ -1,4 +1,4 @@
-import { ShoppingCart, CheckSquare, Share2, Wrench, Sparkles, RotateCw, AlertTriangle, Heart, MessageCircle, Send, Bookmark, BadgeCheck, Camera, Wine } from 'lucide-react'
+import { ShoppingCart, CheckSquare, Share2, Wrench, Sparkles, RotateCw, AlertTriangle, Heart, MessageCircle, Send, Bookmark, BadgeCheck, Camera, Wine, Check } from 'lucide-react'
 
 export function Features() {
   return (
@@ -141,7 +141,7 @@ function BuyEatMockup() {
               style={{ animation: `slide-up 0.5s ease-out ${i * 0.07}s backwards` }}
             >
               <div className={`w-3.5 h-3.5 rounded-sm border-2 flex-shrink-0 ${p.selected ? 'bg-blue-500 border-blue-500' : 'border-slate-600'}`}>
-                {p.selected && <div className="text-white text-[9px] leading-none flex items-center justify-center h-full">✓</div>}
+                {p.selected && <div className="flex items-center justify-center h-full"><Check size={9} className="text-white" strokeWidth={3} /></div>}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-[11px] font-semibold text-slate-100 truncate">{p.name}</div>

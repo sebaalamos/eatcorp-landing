@@ -65,7 +65,7 @@ export function Hero() {
           que tu restorán necesita en una sola plataforma integrada.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 px-6 sm:px-0">
           <button
             onClick={handleClick}
             className="relative bg-primary-600 hover:bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-[0_0_32px_rgba(16,185,129,0.4)] hover:shadow-[0_0_48px_rgba(16,185,129,0.6)] animate-[pulse-glow_3s_ease-in-out_infinite]"

@@ -1,4 +1,4 @@
-import { Truck, CheckSquare, ChefHat, Camera, Wrench, Sparkles, AlertTriangle, Wine } from 'lucide-react'
+import { Truck, CheckSquare, ChefHat, Camera, Wrench, Sparkles, AlertTriangle, Wine, Check } from 'lucide-react'
 
 type Moment = {
   time: string
@@ -153,7 +153,7 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
         <div className="space-y-1">
           {['Distribuidora Central', 'Carnes del Sur', 'Bebidas Nacional'].map((n, i) => (
             <div key={n} className="flex items-center gap-1.5 text-[10px]">
-              <div className="w-3 h-3 rounded-sm bg-blue-500 flex items-center justify-center text-white text-[8px] leading-none shadow-sm shadow-blue-500/40">✓</div>
+              <div className="w-3 h-3 rounded-sm bg-blue-500 flex items-center justify-center shadow-sm shadow-blue-500/40"><Check size={8} className="text-white" strokeWidth={3} /></div>
               <span className="flex-1 truncate text-slate-300">{n}</span>
               <span className="text-slate-400">${(i + 1) * 480}K</span>
             </div>
