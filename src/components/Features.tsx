@@ -1,4 +1,4 @@
-import { ShoppingCart, CheckSquare, Share2, Wrench, Sparkles, RotateCw, AlertTriangle } from 'lucide-react'
+import { ShoppingCart, CheckSquare, Share2, Wrench, Sparkles, RotateCw, AlertTriangle, Heart, MessageCircle, Send, Bookmark, BadgeCheck } from 'lucide-react'
 
 export function Features() {
   return (
@@ -135,7 +135,11 @@ function BuyEatMockup() {
         </div>
         <div className="space-y-1.5 mb-3">
           {invoices.map((p, i) => (
-            <div key={i} className={`flex items-center gap-3 p-2.5 rounded-lg border ${p.selected ? 'bg-blue-50/50 border-blue-200' : 'bg-white border-slate-200'}`}>
+            <div
+              key={i}
+              className={`flex items-center gap-3 p-2.5 rounded-lg border ${p.selected ? 'bg-blue-50/50 border-blue-200' : 'bg-white border-slate-200'}`}
+              style={{ animation: `slide-up 0.5s ease-out ${i * 0.07}s backwards` }}
+            >
               <div className={`w-3.5 h-3.5 rounded-sm border-2 flex-shrink-0 ${p.selected ? 'bg-blue-600 border-blue-600' : 'border-slate-300'}`}>
                 {p.selected && <div className="text-white text-[9px] leading-none flex items-center justify-center h-full">✓</div>}
               </div>
@@ -216,7 +220,7 @@ function TaskEatMockup() {
           <span className="text-[9px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full bg-emerald-600 text-white">Mi equipo</span>
         </div>
         <div className="grid grid-cols-3 gap-2">
-          {cols.map((c) => (
+          {cols.map((c, ci) => (
             <div key={c.name} className={`p-2 rounded-lg border ${c.color}`}>
               <div className="flex items-center justify-between mb-1.5">
                 <div className="text-[10px] font-bold uppercase tracking-wide text-slate-700">{c.name}</div>
@@ -224,7 +228,11 @@ function TaskEatMockup() {
               </div>
               <div className="space-y-1.5">
                 {c.tasks.map((t, j) => (
-                  <div key={j} className="bg-white p-1.5 rounded border border-slate-200 shadow-sm">
+                  <div
+                    key={j}
+                    className="bg-white p-1.5 rounded border border-slate-200 shadow-sm"
+                    style={{ animation: `slide-up 0.5s ease-out ${(ci * 3 + j) * 0.08}s backwards` }}
+                  >
                     <div className="text-[9px] font-medium text-slate-800 leading-tight mb-1">{t.label}</div>
                     <div className="flex items-center justify-between">
                       <span className={`text-[7px] font-bold uppercase tracking-wide px-1 py-0.5 rounded ${priorityClass(t.priority)}`}>
@@ -257,22 +265,35 @@ function TaskEatMockup() {
 }
 
 function LikeEatMockup() {
+  const week = [
+    { d: 'L', emoji: '🥗', label: 'Bowl' },
+    { d: 'M', emoji: '🍝', label: 'Pasta', active: true },
+    { d: 'M', emoji: '🥩', label: 'Asado' },
+    { d: 'J', emoji: '🍷', label: 'Maridaje' },
+    { d: 'V', emoji: '🌶️', label: 'Picante', special: '18-S' },
+    { d: 'S', emoji: '🥟', label: 'Empanada' },
+    { d: 'D', emoji: '🍳', label: 'Brunch' },
+  ]
+
   return (
     <MockupFrame glow="bg-pink-100">
       <div className="p-4 bg-gradient-to-br from-slate-50 to-white">
         <div className="flex items-center justify-between mb-3">
-          <div className="text-sm font-semibold text-slate-900">Tu post para hoy</div>
+          <div>
+            <div className="text-sm font-semibold text-slate-900">Plan de la semana</div>
+            <div className="text-[10px] text-slate-500 mt-0.5">@eltoro · 9 posts agendados</div>
+          </div>
           <div className="flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-pink-100 text-pink-800 font-semibold">
             <Sparkles size={10} />
-            <span>IA · 2,3s</span>
+            <span>Brand IA</span>
           </div>
         </div>
 
         <div className="flex gap-1 mb-3">
           {[
-            { name: 'Instagram', active: true },
+            { name: 'IG', active: true },
             { name: 'TikTok', active: false },
-            { name: 'Facebook', active: false },
+            { name: 'FB', active: false },
           ].map((p) => (
             <button
               key={p.name}
@@ -283,33 +304,89 @@ function LikeEatMockup() {
           ))}
         </div>
 
-        <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
-          <div className="aspect-[4/3] bg-gradient-to-br from-amber-100 via-orange-200 to-red-200 flex items-center justify-center text-5xl relative">
-            🍝
-            <div className="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-white/80 backdrop-blur text-[9px] font-bold text-slate-700">
+        <div className="grid grid-cols-7 gap-1 mb-3 p-2 bg-white border border-slate-200 rounded-lg">
+          {week.map((day, i) => (
+            <div
+              key={i}
+              className={`relative flex flex-col items-center gap-0.5 py-1 rounded-md ${
+                day.active ? 'bg-pink-50 ring-1 ring-pink-300' : ''
+              }`}
+            >
+              <div className="text-[8px] font-bold text-slate-500 uppercase">{day.d}</div>
+              <div className="text-base leading-none">{day.emoji}</div>
+              <div className="text-[7px] text-slate-400 truncate max-w-full px-0.5">{day.label}</div>
+              {day.special && (
+                <div className="absolute -top-1 -right-0.5 text-[7px] font-bold bg-amber-400 text-amber-900 px-0.5 py-px rounded-sm leading-none">
+                  {day.special}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm">
+          <div className="flex items-center gap-2 px-2.5 py-1.5 border-b border-slate-100">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-[8px] font-bold shadow-sm">
+              ET
+            </div>
+            <div className="flex items-center gap-0.5 flex-1 min-w-0">
+              <span className="text-[10px] font-bold text-slate-900 truncate">eltoro_restaurante</span>
+              <BadgeCheck size={11} className="text-blue-500 flex-shrink-0 fill-blue-500 stroke-white" />
+            </div>
+            <span className="text-[9px] text-slate-400">Hoy 18:30</span>
+          </div>
+
+          <div className="aspect-[5/4] relative overflow-hidden bg-slate-200">
+            <PastaIllustration />
+            <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.45)_50%,transparent_70%)] bg-[length:200%_100%] animate-[shimmer_2.4s_ease-in-out_infinite] pointer-events-none"></div>
+
+            <div className="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-white/85 backdrop-blur text-[9px] font-bold text-slate-700">
               <span className="text-pink-600">📷</span>
               <span>Reel</span>
             </div>
-            <button className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 backdrop-blur flex items-center justify-center shadow-sm">
+            <button className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/85 backdrop-blur flex items-center justify-center shadow-sm">
               <RotateCw size={12} className="text-slate-700" />
             </button>
-          </div>
-          <div className="p-3">
-            <div className="text-[11px] text-slate-700 leading-relaxed">
-              Pasta fresca, salsa de la nona y un vino que abraza. ¿Reservas mesa para esta noche? 🍷
+            <div className="absolute bottom-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-pink-600/90 text-white text-[9px] font-bold">
+              <Sparkles size={9} />
+              <span>IA · 2,3s</span>
             </div>
-            <div className="flex flex-wrap gap-1 mt-1.5">
+            <div className="absolute bottom-2 right-2 left-auto flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-slate-900/70 backdrop-blur text-[9px] font-medium text-white">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Subiendo 87%</span>
+            </div>
+          </div>
+
+          <div className="px-2.5 py-2">
+            <div className="flex items-center justify-between mb-1.5">
+              <div className="flex items-center gap-2.5">
+                <Heart size={16} className="text-slate-700" />
+                <MessageCircle size={16} className="text-slate-700" />
+                <Send size={16} className="text-slate-700" />
+              </div>
+              <Bookmark size={16} className="text-slate-700" />
+            </div>
+            <div className="text-[10px] font-bold text-slate-900">312 me gusta</div>
+            <div className="text-[10px] text-slate-700 leading-snug mt-0.5">
+              <span className="font-bold">eltoro_restaurante</span> Pasta fresca, salsa de la nona y un vino que abraza. ¿Reservas mesa para esta noche? 🍷
+            </div>
+            <div className="flex flex-wrap gap-1 mt-1">
               <span className="text-[10px] text-pink-600">#pastafresca</span>
-              <span className="text-[10px] text-pink-600">#santiago</span>
+              <span className="text-[10px] text-pink-600">#santiagochile</span>
               <span className="text-[10px] text-pink-600">#martes</span>
             </div>
-            <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-slate-100">
-              <div className="flex items-center gap-1 text-[9px] text-slate-500">
-                <Sparkles size={9} className="text-pink-500" />
-                <span>Predicción: <span className="font-bold text-slate-700">240–380 likes</span> · alcance 2,1K</span>
-              </div>
-            </div>
+            <div className="text-[9px] text-slate-400 mt-1">Ver los 18 comentarios</div>
           </div>
+        </div>
+
+        <div className="mt-2.5 px-2 py-1.5 rounded-md bg-pink-50 border border-pink-100 flex items-center justify-between">
+          <div className="flex items-center gap-1.5 text-[10px] text-slate-700">
+            <Sparkles size={10} className="text-pink-600" />
+            <span>Predicción: <span className="font-bold text-slate-900">240–380 likes</span> · alcance 2,1K</span>
+          </div>
+          <span className="text-[9px] font-bold uppercase tracking-wide text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">
+            91% aprob.
+          </span>
         </div>
 
         <div className="flex gap-1.5 mt-3">
@@ -356,7 +433,10 @@ function MaintainEatMockup() {
                   <div className="text-[9px] text-slate-500 mt-0.5">{a.sub}</div>
                   <div className="flex items-center gap-1.5 mt-1.5">
                     <div className="flex-1 h-1 bg-slate-100 rounded-full overflow-hidden">
-                      <div className={`h-full ${a.progressColor} rounded-full`} style={{ width: `${a.progress}%` }}></div>
+                      <div
+                        className={`h-full ${a.progressColor} rounded-full origin-left`}
+                        style={{ width: `${a.progress}%`, animation: `fill-bar 1.2s cubic-bezier(0.4,0,0.2,1) ${i * 0.15}s backwards` }}
+                      ></div>
                     </div>
                     <div className={`w-4 h-4 rounded-full ${a.techBg} flex items-center justify-center text-white text-[7px] font-bold`}>
                       {a.tech}
@@ -369,5 +449,59 @@ function MaintainEatMockup() {
         </div>
       </div>
     </MockupFrame>
+  )
+}
+
+function PastaIllustration() {
+  return (
+    <svg viewBox="0 0 200 160" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="pasta-bg" cx="50%" cy="40%" r="80%">
+          <stop offset="0%" stopColor="#fde68a" />
+          <stop offset="60%" stopColor="#f59e0b" />
+          <stop offset="100%" stopColor="#7c2d12" />
+        </radialGradient>
+        <radialGradient id="plate" cx="50%" cy="45%" r="55%">
+          <stop offset="0%" stopColor="#fef3c7" />
+          <stop offset="80%" stopColor="#f5e6b8" />
+          <stop offset="100%" stopColor="#d4a373" />
+        </radialGradient>
+        <linearGradient id="pasta-strand" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#fde68a" />
+          <stop offset="100%" stopColor="#d97706" />
+        </linearGradient>
+        <radialGradient id="sauce" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#dc2626" />
+          <stop offset="100%" stopColor="#7f1d1d" />
+        </radialGradient>
+      </defs>
+
+      <rect width="200" height="160" fill="url(#pasta-bg)" />
+
+      <ellipse cx="100" cy="85" rx="78" ry="58" fill="rgba(0,0,0,0.18)" />
+      <ellipse cx="100" cy="80" rx="76" ry="56" fill="url(#plate)" />
+      <ellipse cx="100" cy="78" rx="62" ry="46" fill="#faf3dd" opacity="0.6" />
+
+      <g opacity="0.95">
+        <path d="M 50 75 Q 90 50 145 70 T 155 95 Q 130 115 95 105 T 50 75" fill="url(#pasta-strand)" />
+        <path d="M 60 70 Q 100 55 140 75" stroke="#fbbf24" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7" />
+        <path d="M 55 90 Q 100 70 150 95" stroke="#f59e0b" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.7" />
+        <path d="M 65 100 Q 110 85 145 105" stroke="#fcd34d" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6" />
+      </g>
+
+      <g>
+        <ellipse cx="105" cy="82" rx="32" ry="20" fill="url(#sauce)" opacity="0.85" />
+        <ellipse cx="115" cy="78" rx="6" ry="4" fill="#ef4444" opacity="0.9" />
+        <ellipse cx="92" cy="88" rx="5" ry="3.5" fill="#dc2626" opacity="0.9" />
+      </g>
+
+      <g>
+        <ellipse cx="125" cy="68" rx="5" ry="2.5" fill="#16a34a" transform="rotate(-20 125 68)" />
+        <ellipse cx="80" cy="92" rx="4" ry="2" fill="#16a34a" transform="rotate(35 80 92)" />
+        <ellipse cx="110" cy="98" rx="3.5" ry="2" fill="#15803d" transform="rotate(-10 110 98)" />
+      </g>
+
+      <ellipse cx="78" cy="60" rx="22" ry="10" fill="white" opacity="0.18" />
+    </svg>
   )
 }

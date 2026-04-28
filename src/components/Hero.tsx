@@ -159,6 +159,8 @@ function KpiCard({ label, value, trend, trendUp, color, spark }: KpiProps) {
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
+            strokeDasharray="200"
+            style={{ animation: 'draw-line 1.5s ease-out forwards' }}
             className={trendUp ? 'text-emerald-500' : 'text-slate-400'}
           />
         </svg>
@@ -199,8 +201,8 @@ function ChartCard() {
             {data.map((d, i) => (
               <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
                 <div
-                  className={`w-full bg-gradient-to-t from-emerald-600 to-emerald-400 rounded-t ${i === today ? 'ring-2 ring-emerald-300 ring-offset-1' : ''}`}
-                  style={{ height: `${d.v}%` }}
+                  className={`w-full bg-gradient-to-t from-emerald-600 to-emerald-400 rounded-t origin-bottom ${i === today ? 'ring-2 ring-emerald-300 ring-offset-1' : ''}`}
+                  style={{ height: `${d.v}%`, animation: `slide-up 0.6s ease-out ${i * 0.08}s backwards` }}
                 ></div>
               </div>
             ))}
@@ -246,7 +248,7 @@ function TasksCard() {
 
 function ApprovalsCard() {
   const items = [
-    { name: 'Distribuidora Central', amount: '$480K', urgency: 'Vence hoy', urgColor: 'bg-rose-100 text-rose-700' },
+    { name: 'Distribuidora Central', amount: '$480K', urgency: 'Vence hoy', urgColor: 'bg-rose-100 text-rose-700 animate-pulse' },
     { name: 'Carnes del Sur', amount: '$320K', urgency: 'Pronto pago -2%', urgColor: 'bg-emerald-100 text-emerald-700' },
     { name: 'Bebidas Nacional', amount: '$180K', urgency: '5 días', urgColor: 'bg-slate-100 text-slate-600' },
   ]
