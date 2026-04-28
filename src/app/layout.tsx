@@ -8,22 +8,30 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'EatCorp | Plataforma de gestión para restaurantes',
+  title: 'EatCorp — El motor de tu restaurante',
   description:
-    'Suite completa de apps para compras, tareas, redes sociales, mantenimiento y reservas. Todo lo que necesita tu restaurante en una sola plataforma integrada.',
+    'Compras, equipo, redes sociales y reservas — todo conectado en una sola plataforma, con IA donde más importa.',
+  themeColor: '#0f172a',
   icons: {
     icon: '/favicon.svg',
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'EatCorp | Plataforma de gestión para restaurantes',
+    title: 'EatCorp — El motor de tu restaurante',
     description:
-      'Suite completa de apps para compras, tareas, redes sociales, mantenimiento y reservas.',
+      'Compras, equipo, redes sociales y reservas — todo conectado en una sola plataforma, con IA donde más importa.',
     url: 'https://eatcorp.cl',
     siteName: 'EatCorp',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     type: 'website',
     locale: 'es_CL',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EatCorp — El motor de tu restaurante',
+    description:
+      'Compras, equipo, redes sociales y reservas — todo conectado en una sola plataforma, con IA donde más importa.',
+    images: ['/og-image.png'],
   },
 }
 

@@ -1,7 +1,19 @@
 @import "tailwindcss";
 
+/*
+ * Tokens de marca de EatCorp.
+ *
+ * FUENTE DE VERDAD: https://github.com/sebaalamos/EatCorp/blob/main/docs/BRAND.md
+ *
+ * Cuando los tokens se actualicen en el repo de la app (eatcorp/src/index.css),
+ * sincronizar este archivo manualmente. Hoy los componentes del landing usan
+ * mayoritariamente clases Tailwind nativas (emerald-*, amber-*, slate-*) en
+ * vez de estos tokens. Mantenemos los tokens disponibles para refactor futuro
+ * — alinear emerald-* → primary-*, amber-* → warning-*, etc.
+ */
+
 @theme {
-  /* Brand dark (topbar/footer/dark sections) */
+  /* ─── Brand (shell oscuro fijo) ─── */
   --color-brand-50: #f1f5f9;
   --color-brand-100: #e2e8f0;
   --color-brand-500: #475569;
@@ -9,23 +21,45 @@
   --color-brand-800: #1e293b;
   --color-brand-900: #0f172a;
 
-  /* Primary - Emerald foodtech */
-  --color-primary-50: #ecfdf5;
+  /* ─── Primary — Esmeralda EatCorp ─── */
+  --color-primary-50:  #ecfdf5;
   --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
   --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
   --color-primary-500: #10b981;
   --color-primary-600: #059669;
   --color-primary-700: #047857;
   --color-primary-800: #065f46;
   --color-primary-900: #064e3b;
 
-  /* Accent - Amber WOW moments */
-  --color-accent-50: #fffbeb;
-  --color-accent-100: #fef3c7;
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97706;
-  --color-accent-700: #b45309;
+  /* ─── Accent — Terracota chilena (signature secundario) ─── */
+  --color-accent-50:  #fdf4f0;
+  --color-accent-100: #fbe5d9;
+  --color-accent-200: #f7c7ad;
+  --color-accent-300: #f0a17b;
+  --color-accent-400: #e87f54;
+  --color-accent-500: #e1623d;
+  --color-accent-600: #c44a28;
+  --color-accent-700: #9e3a20;
+  --color-accent-800: #7a2e1c;
+  --color-accent-900: #5a2316;
 
+  /* ─── Semánticos ─── */
+  --color-success-500: #16a34a;
+  --color-warning-500: #d97706;
+  --color-danger-500:  #dc2626;
+
+  /* ─── Sub-marca por app (mismas que app.eatcorp.cl) ─── */
+  --color-app-buyeat:      #10b981;
+  --color-app-taskeat:     #7c5cff;
+  --color-app-likeeat:     #ec4899;
+  --color-app-bookeat:     #e1623d;
+  --color-app-maintaineat: #0ea5e9;
+  --color-app-staffeat:    #14b8a6;
+  --color-app-feedbackeat: #f59e0b;
+
+  /* ─── Tipografía ─── */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -58,19 +92,18 @@ h1, h2, h3 {
   to { transform: scaleX(1); }
 }
 
-@keyframes float-card {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
 @keyframes slide-up {
-  0% { opacity: 0; transform: translateY(8px); }
-  60% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
 }
 
-@keyframes count-pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); color: #059669; }
-  100% { transform: scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
