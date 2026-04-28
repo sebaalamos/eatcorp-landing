@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react'
 
 const messages = [
-  { icon: '📦', text: 'Restorán Demo aprobó factura $480.500' },
+  { icon: '📦', text: 'El Toro aprobó factura $480.500' },
   { icon: '✅', text: '24 tareas completadas hoy en TaskEat' },
-  { icon: '✨', text: 'LikeEat publicó 8 posts esta semana' },
+  { icon: '✨', text: 'Tigre publicó 8 posts esta semana' },
   { icon: '🔧', text: 'MaintainEat agendó 3 mantenciones preventivas' },
   { icon: '💰', text: 'Lote de pago $2.4M ejecutado en BuyEat' },
-  { icon: '👥', text: '2 nuevos miembros se unieron a Bistró La Estación' },
-  { icon: '📸', text: 'Magic Post generó caption en 4 segundos' },
+  { icon: '👥', text: '2 nuevos miembros se unieron a El Toro' },
+  { icon: '📸', text: 'Magic Post generó caption para Tigre en 4 segundos' },
   { icon: '⚡', text: 'Discrepancia detectada y resuelta automáticamente' },
 ]
 

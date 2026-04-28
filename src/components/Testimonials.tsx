@@ -3,35 +3,32 @@ import { Quote } from 'lucide-react'
 const testimonials = [
   {
     quote:
-      'Antes me quedaba hasta las 11pm cuadrando facturas en Excel. Ahora la admin aprueba todo en 10 minutos y el lote bancario sale solo. Cambió mi vida.',
-    author: 'María Pérez',
-    role: 'Dueña',
-    restaurant: 'Bistró La Estación',
-    location: 'Providencia',
-    initials: 'MP',
-    gradient: 'from-pink-400 to-rose-500',
+      'Antes nos quedábamos hasta tarde cuadrando facturas en Excel. Ahora la administración aprueba todo el lote en 10 minutos y el archivo bancario sale solo. Tiempo recuperado para lo que importa.',
+    role: 'Equipo de operaciones',
+    restaurant: 'El Toro',
+    location: 'Las Condes',
+    initials: 'ET',
+    gradient: 'from-amber-400 to-orange-500',
     apps: ['BuyEat', 'TaskEat'],
   },
   {
     quote:
-      'LikeEat me genera el plan mensual de Instagram con efemérides chilenas que ni se me habrían ocurrido. Aprobé 30 posts el mes pasado en menos tiempo del que tomaba escribir uno solo.',
-    author: 'Felipe Soto',
-    role: 'Manager',
-    restaurant: 'Sal & Roca',
-    location: 'Vitacura',
-    initials: 'FS',
+      'LikeEat nos genera el plan mensual de Instagram con efemérides chilenas que ni se nos habrían ocurrido. Aprobamos posts en segundos en lugar de pasarnos horas pensando qué publicar.',
+    role: 'Equipo de marketing',
+    restaurant: 'Tigre',
+    location: 'Bellavista',
+    initials: 'TG',
     gradient: 'from-emerald-400 to-teal-500',
     apps: ['LikeEat', 'TaskEat'],
   },
   {
     quote:
-      'Tenemos 3 locales y antes era imposible saber qué pasaba en cada uno. Ahora tengo dashboard con todo: pagos, tareas, posts, mantenciones. Hecho en Chile, soporte en castellano, perfecto.',
-    author: 'Roberto Donoso',
-    role: 'Co-fundador',
-    restaurant: 'Don Tito Pizzas',
-    location: 'Las Condes • 3 locales',
-    initials: 'RD',
-    gradient: 'from-amber-400 to-orange-500',
+      'Tengo varios locales y antes era imposible saber qué pasaba en cada uno. Ahora veo todo: pagos pendientes, tareas, posts, mantenciones. Hecho en Chile, soporte en castellano, perfecto para nosotros.',
+    role: 'Dueña',
+    restaurant: 'Restaurante familiar',
+    location: 'Anonimato preferido · multi-local',
+    initials: 'DR',
+    gradient: 'from-pink-400 to-rose-500',
     apps: ['BuyEat', 'TaskEat', 'LikeEat', 'MaintainEat'],
   },
 ]
@@ -55,7 +52,7 @@ export function Testimonials() {
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
             <div
-              key={t.author}
+              key={t.restaurant}
               className="bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 p-6 shadow-md hover:shadow-xl transition-shadow flex flex-col"
             >
               <Quote size={28} className="text-emerald-600 mb-4 opacity-60" />
@@ -71,10 +68,8 @@ export function Testimonials() {
                   {t.initials}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-slate-900 text-sm">{t.author}</div>
-                  <div className="text-xs text-slate-500 truncate">
-                    {t.role} • {t.restaurant}
-                  </div>
+                  <div className="font-semibold text-slate-900 text-sm">{t.restaurant}</div>
+                  <div className="text-xs text-slate-500 truncate">{t.role}</div>
                   <div className="text-[10px] text-slate-400 mt-0.5">{t.location}</div>
                 </div>
               </div>

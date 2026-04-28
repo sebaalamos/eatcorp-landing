@@ -2,14 +2,25 @@
 
 import { ShoppingCart, CheckSquare, Share2, Wrench, Calendar, Users } from 'lucide-react'
 
-const apps = [
-  { id: 'buyeat', icon: ShoppingCart, name: 'BuyEat', description: 'Compras a proveedores', accent: 'blue', external: false },
-  { id: 'taskeat', icon: CheckSquare, name: 'TaskEat', description: 'Tareas y equipos', accent: 'emerald', external: false },
-  { id: 'likeeat', icon: Share2, name: 'LikeEat', description: 'RRSS con IA', accent: 'pink', external: false },
-  { id: 'maintaineat', icon: Wrench, name: 'MaintainEat', description: 'Activos y mantención', accent: 'amber', external: false },
-  { id: 'bookeat', icon: Calendar, name: 'BookEat', description: 'Reservas en línea', accent: 'cyan', external: true },
-  { id: 'staffeat', icon: Users, name: 'StaffEat', description: 'Gestión de personal', accent: 'violet', external: true },
-] as const
+type AppDef = {
+  id: string
+  icon: typeof ShoppingCart
+  name: string
+  description: string
+  metric: string
+  accent: 'blue' | 'emerald' | 'pink' | 'amber' | 'cyan' | 'violet'
+  external: boolean
+  preview: 'invoices' | 'kanban' | 'post' | 'assets' | 'calendar' | 'roster'
+}
+
+const apps: AppDef[] = [
+  { id: 'buyeat', icon: ShoppingCart, name: 'BuyEat', description: 'Compras a proveedores', metric: 'Lotes en 5 min', accent: 'blue', external: false, preview: 'invoices' },
+  { id: 'taskeat', icon: CheckSquare, name: 'TaskEat', description: 'Tareas y equipos', metric: 'Visibilidad híbrida', accent: 'emerald', external: false, preview: 'kanban' },
+  { id: 'likeeat', icon: Share2, name: 'LikeEat', description: 'RRSS con IA', metric: 'Captions en 3s', accent: 'pink', external: false, preview: 'post' },
+  { id: 'maintaineat', icon: Wrench, name: 'MaintainEat', description: 'Activos y mantención', metric: 'Cero parada sorpresa', accent: 'amber', external: false, preview: 'assets' },
+  { id: 'bookeat', icon: Calendar, name: 'BookEat', description: 'Reservas en línea', metric: 'Mesa al día', accent: 'cyan', external: true, preview: 'calendar' },
+  { id: 'staffeat', icon: Users, name: 'StaffEat', description: 'Gestión de personal', metric: 'Turnos al instante', accent: 'violet', external: true, preview: 'roster' },
+]
 
 const accentClasses: Record<string, string> = {
   blue: 'bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-400',
@@ -44,25 +55,149 @@ export function Apps() {
               <button
                 key={app.id}
                 onClick={() => handleAppClick(app.id, app.external)}
-                className={`group relative p-6 rounded-xl border-2 transition-all text-left ${accentClasses[app.accent]} hover:shadow-lg`}
+                className={`group relative rounded-xl border-2 transition-all text-left overflow-hidden ${accentClasses[app.accent]} hover:shadow-lg hover:-translate-y-0.5`}
               >
-                {app.external && (
-                  <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wide text-slate-500 bg-white border border-slate-200 px-2 py-0.5 rounded-full">Externa</span>
-                )}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`p-2.5 rounded-lg bg-white shadow-sm border border-current/10`}>
-                    <Icon size={22} />
+                <AppPreview type={app.preview} accent={app.accent} />
+                <div className="p-5">
+                  {app.external && (
+                    <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wide text-slate-500 bg-white border border-slate-200 px-2 py-0.5 rounded-full">Externa</span>
+                  )}
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 rounded-lg bg-white shadow-sm border border-current/10">
+                      <Icon size={20} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900">{app.name}</h3>
+                      <p className="text-[11px] text-slate-600">{app.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900">{app.name}</h3>
+                  <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide bg-white/70 backdrop-blur px-2 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
+                    <span>{app.metric}</span>
                   </div>
                 </div>
-                <p className="text-sm text-slate-700">{app.description}</p>
               </button>
             )
           })}
         </div>
       </div>
     </section>
+  )
+}
+
+function AppPreview({ type, accent }: { type: AppDef['preview']; accent: string }) {
+  const bgMap: Record<string, string> = {
+    blue: 'from-blue-100/80 via-blue-50 to-transparent',
+    emerald: 'from-emerald-100/80 via-emerald-50 to-transparent',
+    pink: 'from-pink-100/80 via-pink-50 to-transparent',
+    amber: 'from-amber-100/80 via-amber-50 to-transparent',
+    cyan: 'from-cyan-100/80 via-cyan-50 to-transparent',
+    violet: 'from-violet-100/80 via-violet-50 to-transparent',
+  }
+
+  return (
+    <div className={`h-16 px-3 pt-3 pb-1 bg-gradient-to-b ${bgMap[accent]} relative overflow-hidden`}>
+      <div className="transition-transform duration-500 group-hover:scale-105 origin-bottom h-full">
+        {type === 'invoices' && <InvoicesPreview />}
+        {type === 'kanban' && <KanbanPreview />}
+        {type === 'post' && <PostPreview />}
+        {type === 'assets' && <AssetsPreview />}
+        {type === 'calendar' && <CalendarPreview />}
+        {type === 'roster' && <RosterPreview />}
+      </div>
+    </div>
+  )
+}
+
+function InvoicesPreview() {
+  return (
+    <div className="space-y-1">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="h-2 bg-white/80 rounded flex items-center justify-between px-1">
+          <div className="h-1 w-12 bg-blue-300 rounded"></div>
+          <div className="h-1 w-6 bg-blue-500 rounded"></div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function KanbanPreview() {
+  return (
+    <div className="grid grid-cols-3 gap-1 h-full">
+      {[2, 3, 1].map((c, i) => (
+        <div key={i} className="bg-white/80 rounded p-1">
+          <div className="h-0.5 w-2/3 bg-emerald-400 rounded mb-1"></div>
+          <div className="space-y-0.5">
+            {Array.from({ length: c }).map((_, j) => (
+              <div key={j} className="h-1.5 bg-emerald-100 rounded"></div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function PostPreview() {
+  return (
+    <div className="flex gap-1.5 h-full">
+      <div className="aspect-square h-full rounded bg-gradient-to-br from-amber-200 to-rose-300 flex items-center justify-center text-xs">📸</div>
+      <div className="flex-1 space-y-1 pt-1">
+        <div className="h-1 bg-pink-300 rounded w-full"></div>
+        <div className="h-1 bg-pink-200 rounded w-3/4"></div>
+        <div className="h-1 bg-pink-100 rounded w-1/2"></div>
+        <div className="flex gap-0.5">
+          <div className="h-1 w-3 bg-pink-400 rounded"></div>
+          <div className="h-1 w-4 bg-pink-400 rounded"></div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function AssetsPreview() {
+  const items = [
+    { color: 'bg-emerald-400', w: 'w-1/3' },
+    { color: 'bg-rose-400', w: 'w-full' },
+    { color: 'bg-amber-400', w: 'w-3/4' },
+  ]
+  return (
+    <div className="space-y-1">
+      {items.map((it, i) => (
+        <div key={i} className="bg-white/80 rounded h-3 flex items-center px-1 gap-1">
+          <Wrench size={6} className="text-amber-600 flex-shrink-0" />
+          <div className="flex-1 h-0.5 bg-slate-200 rounded overflow-hidden">
+            <div className={`h-full ${it.color} ${it.w}`}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function CalendarPreview() {
+  return (
+    <div className="grid grid-cols-7 gap-0.5 h-full">
+      {Array.from({ length: 14 }).map((_, i) => (
+        <div
+          key={i}
+          className={`rounded-sm ${[2, 5, 8, 11].includes(i) ? 'bg-cyan-400' : 'bg-white/70'}`}
+        ></div>
+      ))}
+    </div>
+  )
+}
+
+function RosterPreview() {
+  return (
+    <div className="flex gap-1 h-full items-center">
+      {['bg-violet-400', 'bg-violet-300', 'bg-violet-500', 'bg-violet-400', 'bg-violet-300'].map((c, i) => (
+        <div key={i} className="flex flex-col items-center gap-0.5">
+          <div className={`w-3 h-3 rounded-full ${c}`}></div>
+          <div className="w-3 h-1 bg-white/80 rounded"></div>
+        </div>
+      ))}
+    </div>
   )
 }

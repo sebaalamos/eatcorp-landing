@@ -1,6 +1,17 @@
-import { Truck, CheckSquare, ChefHat, Camera, Wrench } from 'lucide-react'
+import { Truck, CheckSquare, ChefHat, Camera, Wrench, Sparkles, AlertTriangle } from 'lucide-react'
 
-const moments = [
+type Moment = {
+  time: string
+  icon: typeof Truck
+  title: string
+  description: string
+  app: string
+  appColor: string
+  tenant: string
+  mockup: 'recepcion' | 'pagos' | 'kanban' | 'post' | 'alerta'
+}
+
+const moments: Moment[] = [
   {
     time: '08:00',
     icon: Truck,
@@ -8,6 +19,8 @@ const moments = [
     description: 'Recepcionista escanea la factura en BuyEat. Discrepancias detectadas automáticamente.',
     app: 'BuyEat',
     appColor: 'bg-blue-500',
+    tenant: 'El Toro',
+    mockup: 'recepcion',
   },
   {
     time: '11:00',
@@ -16,6 +29,8 @@ const moments = [
     description: 'Admin revisa lote del día. Aprueba en 5 minutos lo que antes tomaba 2 horas.',
     app: 'BuyEat',
     appColor: 'bg-blue-500',
+    tenant: 'El Toro',
+    mockup: 'pagos',
   },
   {
     time: '14:00',
@@ -24,6 +39,8 @@ const moments = [
     description: 'Equipo actualiza tareas en TaskEat. Visibilidad híbrida — cada uno ve solo lo suyo.',
     app: 'TaskEat',
     appColor: 'bg-emerald-500',
+    tenant: 'Tigre',
+    mockup: 'kanban',
   },
   {
     time: '17:00',
@@ -32,6 +49,8 @@ const moments = [
     description: 'LikeEat sugiere el post de hoy basado en efeméride chilena. Aprobado en un click.',
     app: 'LikeEat',
     appColor: 'bg-pink-500',
+    tenant: 'Tigre',
+    mockup: 'post',
   },
   {
     time: '23:00',
@@ -40,6 +59,8 @@ const moments = [
     description: 'MaintainEat alerta que la cámara fría necesita revisión. Técnico agendado para mañana.',
     app: 'MaintainEat',
     appColor: 'bg-amber-500',
+    tenant: 'El Toro',
+    mockup: 'alerta',
   },
 ]
 
@@ -75,13 +96,17 @@ export function ADayWithEatCorp() {
                   </div>
 
                   <div className="ml-20 md:ml-0 flex-1">
-                    <div className={`bg-white border border-slate-200 rounded-xl p-5 shadow-md ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}>
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">{m.time}</span>
-                        <span className={`text-[10px] font-bold uppercase tracking-wider text-white ${m.appColor} px-2 py-0.5 rounded`}>{m.app}</span>
+                    <div className={`bg-white border border-slate-200 rounded-xl shadow-md overflow-hidden ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}>
+                      <div className="p-5">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">{m.time}</span>
+                          <span className={`text-[10px] font-bold uppercase tracking-wider text-white ${m.appColor} px-2 py-0.5 rounded`}>{m.app}</span>
+                          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide">@ {m.tenant}</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-900 mb-1">{m.title}</h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">{m.description}</p>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-1">{m.title}</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{m.description}</p>
+                      <MiniMockup type={m.mockup} />
                     </div>
                   </div>
                 </div>
@@ -91,5 +116,122 @@ export function ADayWithEatCorp() {
         </div>
       </div>
     </section>
+  )
+}
+
+function MiniMockup({ type }: { type: Moment['mockup'] }) {
+  if (type === 'recepcion') {
+    return (
+      <div className="border-t border-slate-100 bg-gradient-to-br from-blue-50/40 to-white px-4 py-3">
+        <div className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center">
+            <Truck size={16} className="text-blue-700" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-[11px] font-semibold text-slate-900">Factura Distribuidora Central</div>
+            <div className="text-[9px] text-slate-500">$1.240.000 · 12 ítems</div>
+          </div>
+          <span className="text-[9px] font-bold uppercase tracking-wide bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded animate-pulse">
+            Discrepancia
+          </span>
+        </div>
+        <div className="mt-2 flex items-center gap-1.5 text-[9px] text-slate-600">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Detectado: 2 unidades menos en aceite oliva</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (type === 'pagos') {
+    return (
+      <div className="border-t border-slate-100 bg-gradient-to-br from-blue-50/40 to-white px-4 py-3">
+        <div className="flex items-center justify-between mb-1.5">
+          <div className="text-[10px] font-semibold text-slate-700">Lote del día</div>
+          <span className="text-[9px] text-slate-500">8 facturas</span>
+        </div>
+        <div className="space-y-1">
+          {['Distribuidora Central', 'Carnes del Sur', 'Bebidas Nacional'].map((n, i) => (
+            <div key={n} className="flex items-center gap-1.5 text-[10px]">
+              <div className="w-3 h-3 rounded-sm bg-blue-600 flex items-center justify-center text-white text-[8px] leading-none">✓</div>
+              <span className="flex-1 truncate text-slate-700">{n}</span>
+              <span className="text-slate-500">${(i + 1) * 480}K</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between">
+          <span className="text-[10px] font-bold text-slate-700">Total $2.640.500</span>
+          <span className="text-[9px] font-bold uppercase bg-blue-600 text-white px-2 py-0.5 rounded">Aprobado</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (type === 'kanban') {
+    return (
+      <div className="border-t border-slate-100 bg-gradient-to-br from-emerald-50/40 to-white px-4 py-3">
+        <div className="grid grid-cols-3 gap-1.5">
+          {[
+            { name: 'Por hacer', color: 'bg-slate-100', count: 3 },
+            { name: 'En curso', color: 'bg-amber-100', count: 2, highlight: true },
+            { name: 'Listas', color: 'bg-emerald-100', count: 4 },
+          ].map((c) => (
+            <div key={c.name} className={`${c.color} rounded-md p-1.5 ${c.highlight ? 'ring-2 ring-amber-300' : ''}`}>
+              <div className="text-[8px] font-bold uppercase text-slate-700">{c.name}</div>
+              <div className="mt-1 space-y-0.5">
+                {Array.from({ length: c.count }).map((_, j) => (
+                  <div key={j} className="h-1.5 bg-white rounded-sm border border-slate-200"></div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-2 text-[9px] text-emerald-700 font-semibold flex items-center gap-1">
+          <span>→</span>
+          <span>"Inventario semanal" pasó a En curso</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (type === 'post') {
+    return (
+      <div className="border-t border-slate-100 bg-gradient-to-br from-pink-50/40 to-white px-4 py-3">
+        <div className="flex gap-2.5">
+          <div className="w-12 h-12 rounded-md bg-gradient-to-br from-amber-200 to-rose-300 flex items-center justify-center text-2xl flex-shrink-0">
+            🍷
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-1 mb-1">
+              <Sparkles size={9} className="text-pink-600" />
+              <span className="text-[9px] font-bold uppercase text-pink-700">Generando…</span>
+            </div>
+            <div className="text-[10px] text-slate-700 leading-snug line-clamp-2">
+              "Esta noche, una copa que abraza. Reservas mesa para hoy en Tigre 🍷"
+            </div>
+            <div className="flex gap-1 mt-1">
+              <span className="text-[9px] text-pink-600">#tigre</span>
+              <span className="text-[9px] text-pink-600">#bellavista</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // alerta
+  return (
+    <div className="border-t border-slate-100 bg-gradient-to-br from-rose-50/40 to-white px-4 py-3">
+      <div className="flex items-center gap-2.5">
+        <div className="w-9 h-9 rounded-lg bg-rose-100 flex items-center justify-center">
+          <AlertTriangle size={16} className="text-rose-600 animate-pulse" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="text-[11px] font-semibold text-slate-900">Cámara fría #1</div>
+          <div className="text-[9px] text-slate-600">Revisión vencida hace 4 días · técnico JC asignado</div>
+        </div>
+        <span className="text-[9px] font-bold uppercase tracking-wide bg-rose-100 text-rose-700 px-1.5 py-0.5 rounded">Mañana</span>
+      </div>
+    </div>
   )
 }
