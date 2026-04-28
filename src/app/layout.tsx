@@ -8,6 +8,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://eatcorp.cl'),
   title: 'EatCorp — El motor de tu restaurante',
   description:
     'Compras, equipo, redes sociales y reservas — todo conectado en una sola plataforma, con IA donde más importa.',

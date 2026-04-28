@@ -1,3 +1,4 @@
+import { HashRedirect } from '@/components/HashRedirect'
 import { Navigation } from '@/components/Navigation'
 import { Hero } from '@/components/Hero'
 import { LiveActivityBar } from '@/components/LiveActivityBar'
@@ -20,6 +21,7 @@ import { Footer } from '@/components/Footer'
 export default function Home() {
   return (
     <main className="flex flex-col">
+      <HashRedirect />
       <Navigation />
       <Hero />
       <LiveActivityBar />
