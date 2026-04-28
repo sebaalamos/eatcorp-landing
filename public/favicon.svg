@@ -1,4 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="13" fill="#a31818"/>
-  <path d="M19 16 H45 V24 H27.5 V28 H41 V35 H27.5 V40 H45 V48 H19 Z" fill="#fef3e2"/>
+  <defs>
+    <clipPath id="r">
+      <rect width="64" height="64" rx="13"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="64" height="64" fill="#10b981"/>
+    <path d="M44 0 H64 V20 Z" fill="#e1623d"/>
+    <path d="M19 16 H45 V24 H27.5 V28 H41 V35 H27.5 V40 H45 V48 H19 Z" fill="#faf7f2"/>
+  </g>
 </svg>
