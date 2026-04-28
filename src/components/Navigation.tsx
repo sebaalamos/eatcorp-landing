@@ -36,8 +36,9 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Logo size={36} />
         <div className="flex items-center gap-6">
-          <a href="#apps" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Apps</a>
-          <a href="#features" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Características</a>
+          <a href="#features" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Apps</a>
+          <a href="#pricing" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Precios</a>
+          <a href="#faq" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">FAQ</a>
           <a href="#contacto" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contacto</a>
           <button
             onClick={handleClick}
