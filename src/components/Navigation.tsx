@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import { Logo } from './Logo'
 
 export function Navigation() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -31,16 +32,21 @@ export function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-2xl font-bold text-purple-700">EatCorp</div>
-        <button
-          onClick={handleClick}
-          disabled={isLoading}
-          className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-colors disabled:opacity-50"
-        >
-          {isLoading ? 'Cargando...' : isLoggedIn ? 'Mi cuenta' : 'Entrar'}
-        </button>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <Logo size={36} />
+        <div className="flex items-center gap-6">
+          <a href="#apps" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Apps</a>
+          <a href="#features" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Características</a>
+          <a href="#contacto" className="hidden md:inline text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contacto</a>
+          <button
+            onClick={handleClick}
+            disabled={isLoading}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 shadow-sm"
+          >
+            {isLoading ? '...' : isLoggedIn ? 'Mi cuenta' : 'Entrar'}
+          </button>
+        </div>
       </div>
     </nav>
   )

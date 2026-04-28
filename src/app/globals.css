@@ -1,15 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #f5f3ff;
-  --color-primary-100: #ede9fe;
-  --color-primary-300: #cdbafd;
-  --color-primary-500: #a78bfa;
-  --color-primary-600: #9370f0;
-  --color-primary-700: #7c3aed;
-  --color-primary-900: #4c1d95;
+  /* Brand dark (topbar/footer/dark sections) */
+  --color-brand-50: #f1f5f9;
+  --color-brand-100: #e2e8f0;
+  --color-brand-500: #475569;
+  --color-brand-700: #334155;
+  --color-brand-800: #1e293b;
+  --color-brand-900: #0f172a;
+
+  /* Primary - Emerald foodtech */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-300: #6ee7b7;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+
+  /* Accent - Amber WOW moments */
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
 }
