@@ -24,11 +24,11 @@ export function LiveActivityBar() {
   }, [])
 
   return (
-    <div className="bg-slate-900 border-y border-slate-800 py-3 overflow-hidden">
+    <div className="bg-brand-900 border-y border-brand-800 py-3 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-center gap-3">
-        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span className="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">En vivo</span>
+        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/30">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse"></span>
+          <span className="text-[10px] font-bold tracking-wider text-primary-400 uppercase">En vivo</span>
         </div>
         <div className="relative h-6 flex-1 max-w-2xl overflow-hidden">
           {messages.map((m, i) => (

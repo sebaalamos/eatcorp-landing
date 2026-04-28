@@ -5,7 +5,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-slate-950 text-slate-400 py-16 px-4">
+    <footer className="bg-brand-950 text-slate-400 py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <Newsletter />
 
@@ -44,7 +44,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <div className="pt-8 border-t border-brand-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>&copy; {currentYear} EatCorp. Hecho en Chile con 🌱.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition">Instagram</a>

@@ -5,7 +5,7 @@ export function Features() {
     <section id="features" className="py-24 px-4 bg-slate-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Apps integradas
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Una app para cada operación</h2>
@@ -26,7 +26,7 @@ export function Features() {
           />
           <FeatureRow
             icon={CheckSquare}
-            iconBg="bg-emerald-500"
+            iconBg="bg-primary-500"
             title="TaskEat"
             tagline="Tareas y equipos"
             description="Organiza tareas en categorías con permisos por equipo. Asignaciones, plazos y comentarios. Visibilidad híbrida — cada miembro ve solo lo suyo."
@@ -81,7 +81,7 @@ function FeatureRow({ icon: Icon, iconBg, title, tagline, description, mockup, r
           </div>
         </div>
         <p className="text-lg text-slate-600 leading-relaxed mb-6">{description}</p>
-        <a href="#apps" className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-semibold">
+        <a href="#apps" className="inline-flex items-center gap-2 text-primary-700 hover:text-primary-800 font-semibold">
           Conocer más
           <span aria-hidden>→</span>
         </a>
@@ -96,7 +96,7 @@ function MockupFrame({ children, glow }: { children: React.ReactNode; glow: stri
     <div className="relative">
       <div className={`absolute -inset-2 ${glow} rounded-2xl blur-xl opacity-60`}></div>
       <div className="relative bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
-        <div className="bg-slate-900 px-3 py-2 flex items-center gap-1.5">
+        <div className="bg-brand-900 px-3 py-2 flex items-center gap-1.5">
           <div className="w-2 h-2 rounded-full bg-red-400"></div>
           <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
           <div className="w-2 h-2 rounded-full bg-green-400"></div>
@@ -147,7 +147,7 @@ function BuyEatMockup() {
                 <div className="text-[11px] font-semibold text-slate-900 truncate">{p.name}</div>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="text-[10px] text-slate-600 font-medium">{p.amount}</span>
-                  <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded ${p.urgent ? 'bg-rose-100 text-rose-700' : p.savings ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'}`}>
+                  <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded ${p.urgent ? 'bg-rose-100 text-rose-700' : p.savings ? 'bg-primary-100 text-primary-700' : 'bg-slate-100 text-slate-500'}`}>
                     {p.due}
                   </span>
                 </div>
@@ -182,7 +182,7 @@ function TaskEatMockup() {
       name: 'Por hacer',
       color: 'bg-slate-50 border-slate-200',
       tasks: [
-        { label: 'Reponer aceite oliva', priority: 'media', when: 'hoy', who: 'M', whoBg: 'bg-emerald-500' },
+        { label: 'Reponer aceite oliva', priority: 'media', when: 'hoy', who: 'M', whoBg: 'bg-primary-500' },
         { label: 'Coordinar evento jueves', priority: 'alta', when: 'mañana', who: 'C', whoBg: 'bg-amber-500' },
         { label: 'Pedir botellas Pisco', priority: 'baja', when: '3d', who: 'J', whoBg: 'bg-blue-500' },
       ],
@@ -192,12 +192,12 @@ function TaskEatMockup() {
       color: 'bg-amber-50 border-amber-200',
       tasks: [
         { label: 'Limpieza profunda horno', priority: 'alta', when: 'hoy', who: 'P', whoBg: 'bg-rose-500' },
-        { label: 'Inventario semanal', priority: 'media', when: 'hoy', who: 'M', whoBg: 'bg-emerald-500' },
+        { label: 'Inventario semanal', priority: 'media', when: 'hoy', who: 'M', whoBg: 'bg-primary-500' },
       ],
     },
     {
       name: 'Listas',
-      color: 'bg-emerald-50 border-emerald-200',
+      color: 'bg-primary-50 border-primary-200',
       tasks: [
         { label: 'Capacitar nuevo runner', priority: 'media', when: 'ayer', who: 'C', whoBg: 'bg-amber-500' },
         { label: 'Probar nuevo proveedor', priority: 'baja', when: 'lun', who: 'J', whoBg: 'bg-blue-500' },
@@ -210,14 +210,14 @@ function TaskEatMockup() {
     p === 'alta' ? 'bg-rose-100 text-rose-700' : p === 'media' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'
 
   return (
-    <MockupFrame glow="bg-emerald-100">
+    <MockupFrame glow="bg-primary-100">
       <div className="p-4 bg-gradient-to-br from-slate-50 to-white">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <div className="text-sm font-semibold text-slate-900">Cocina · El Toro</div>
-            <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">8</span>
+            <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-primary-100 text-primary-800 font-bold">8</span>
           </div>
-          <span className="text-[9px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full bg-emerald-600 text-white">Mi equipo</span>
+          <span className="text-[9px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full bg-primary-600 text-white">Mi equipo</span>
         </div>
         <div className="grid grid-cols-3 gap-2">
           {cols.map((c, ci) => (
@@ -253,7 +253,7 @@ function TaskEatMockup() {
         </div>
         <div className="flex items-center gap-2 mt-3 text-[10px] text-slate-500">
           <div className="flex -space-x-1.5">
-            {['bg-emerald-500', 'bg-blue-500', 'bg-amber-500', 'bg-rose-500'].map((b, i) => (
+            {['bg-primary-500', 'bg-blue-500', 'bg-amber-500', 'bg-rose-500'].map((b, i) => (
               <div key={i} className={`w-5 h-5 rounded-full ${b} border-2 border-white`}></div>
             ))}
           </div>
@@ -351,8 +351,8 @@ function LikeEatMockup() {
               <Sparkles size={9} />
               <span>IA · 2,3s</span>
             </div>
-            <div className="absolute bottom-2 right-2 left-auto flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-slate-900/70 backdrop-blur text-[9px] font-medium text-white">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div className="absolute bottom-2 right-2 left-auto flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-brand-900/70 backdrop-blur text-[9px] font-medium text-white">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse"></span>
               <span>Subiendo 87%</span>
             </div>
           </div>
@@ -384,13 +384,13 @@ function LikeEatMockup() {
             <Sparkles size={10} className="text-pink-600" />
             <span>Predicción: <span className="font-bold text-slate-900">240–380 likes</span> · alcance 2,1K</span>
           </div>
-          <span className="text-[9px] font-bold uppercase tracking-wide text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">
+          <span className="text-[9px] font-bold uppercase tracking-wide text-primary-700 bg-primary-100 px-1.5 py-0.5 rounded">
             91% aprob.
           </span>
         </div>
 
         <div className="flex gap-1.5 mt-3">
-          <button className="flex-1 py-2 bg-emerald-600 text-white text-[11px] font-semibold rounded-lg shadow-sm">Aprobar</button>
+          <button className="flex-1 py-2 bg-primary-600 text-white text-[11px] font-semibold rounded-lg shadow-sm">Aprobar</button>
           <button className="flex-1 py-2 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg">Editar</button>
           <button className="flex-1 py-2 bg-pink-100 text-pink-700 text-[11px] font-semibold rounded-lg">Pedir otro</button>
         </div>
@@ -401,11 +401,11 @@ function LikeEatMockup() {
 
 function MaintainEatMockup() {
   const assets = [
-    { name: 'Horno industrial', tech: 'PR', techBg: 'bg-emerald-500', priority: 'OK', priorityClass: 'bg-emerald-100 text-emerald-700', progress: 30, progressColor: 'bg-emerald-500', sub: 'Mantención en 28 días' },
+    { name: 'Horno industrial', tech: 'PR', techBg: 'bg-primary-500', priority: 'OK', priorityClass: 'bg-primary-100 text-primary-700', progress: 30, progressColor: 'bg-primary-500', sub: 'Mantención en 28 días' },
     { name: 'Cámara fría #1', tech: 'JC', techBg: 'bg-rose-500', priority: 'Urgente', priorityClass: 'bg-rose-100 text-rose-700 animate-pulse', progress: 100, progressColor: 'bg-rose-500', sub: 'Revisión vencida hace 4 días', alert: true },
-    { name: 'Lavavajillas', tech: 'PR', techBg: 'bg-emerald-500', priority: 'OK', priorityClass: 'bg-emerald-100 text-emerald-700', progress: 50, progressColor: 'bg-emerald-500', sub: 'Mantención en 18 días' },
+    { name: 'Lavavajillas', tech: 'PR', techBg: 'bg-primary-500', priority: 'OK', priorityClass: 'bg-primary-100 text-primary-700', progress: 50, progressColor: 'bg-primary-500', sub: 'Mantención en 18 días' },
     { name: 'Freidora', tech: 'MA', techBg: 'bg-amber-500', priority: 'Pronto', priorityClass: 'bg-amber-100 text-amber-700', progress: 80, progressColor: 'bg-amber-500', sub: 'Mantención en 5 días' },
-    { name: 'Vitrina caliente', tech: 'PR', techBg: 'bg-emerald-500', priority: 'OK', priorityClass: 'bg-emerald-100 text-emerald-700', progress: 15, progressColor: 'bg-emerald-500', sub: 'Mantención en 42 días' },
+    { name: 'Vitrina caliente', tech: 'PR', techBg: 'bg-primary-500', priority: 'OK', priorityClass: 'bg-primary-100 text-primary-700', progress: 15, progressColor: 'bg-primary-500', sub: 'Mantención en 42 días' },
   ]
 
   return (

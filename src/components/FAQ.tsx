@@ -45,14 +45,14 @@ export function FAQ() {
     <section id="faq" className="py-24 px-4 bg-slate-50">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Preguntas frecuentes
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Resolvemos tus dudas
           </h2>
           <p className="text-xl text-slate-600">
-            ¿No encuentras tu pregunta? <a href="mailto:hola@eatcorp.cl" className="text-emerald-700 hover:underline font-semibold">Escríbenos</a>.
+            ¿No encuentras tu pregunta? <a href="mailto:hola@eatcorp.cl" className="text-primary-700 hover:underline font-semibold">Escríbenos</a>.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function FAQ() {
               <div
                 key={i}
                 className={`bg-white rounded-xl border-2 transition-all overflow-hidden ${
-                  isOpen ? 'border-emerald-300 shadow-md' : 'border-slate-200'
+                  isOpen ? 'border-primary-300 shadow-md' : 'border-slate-200'
                 }`}
               >
                 <button
@@ -72,8 +72,8 @@ export function FAQ() {
                   aria-expanded={isOpen}
                 >
                   <span className="font-semibold text-slate-900">{faq.q}</span>
-                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center">
-                    {isOpen ? <Minus size={14} className="text-emerald-700" /> : <Plus size={14} className="text-emerald-700" />}
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-primary-100 flex items-center justify-center">
+                    {isOpen ? <Minus size={14} className="text-primary-700" /> : <Plus size={14} className="text-primary-700" />}
                   </div>
                 </button>
                 <div

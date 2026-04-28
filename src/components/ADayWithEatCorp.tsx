@@ -38,7 +38,7 @@ const moments: Moment[] = [
     title: 'Cocina en marcha',
     description: 'Equipo actualiza tareas en TaskEat. Visibilidad híbrida — cada uno ve solo lo suyo.',
     app: 'TaskEat',
-    appColor: 'bg-emerald-500',
+    appColor: 'bg-primary-500',
     tenant: 'Tigre',
     mockup: 'kanban',
   },
@@ -69,7 +69,7 @@ export function ADayWithEatCorp() {
     <section className="py-24 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Un día con EatCorp
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -81,7 +81,7 @@ export function ADayWithEatCorp() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-200 -translate-x-px"></div>
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200 -translate-x-px"></div>
 
           <div className="space-y-12">
             {moments.map((m, i) => {
@@ -91,15 +91,15 @@ export function ADayWithEatCorp() {
                 <div key={m.time} className={`relative flex md:items-center gap-6 ${isLeft ? '' : 'md:flex-row-reverse'}`}>
                   <div className="hidden md:block flex-1"></div>
 
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-emerald-500 shadow-lg flex items-center justify-center z-10">
-                    <Icon size={20} className="text-emerald-700" />
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-primary-500 shadow-lg flex items-center justify-center z-10">
+                    <Icon size={20} className="text-primary-700" />
                   </div>
 
                   <div className="ml-20 md:ml-0 flex-1">
                     <div className={`bg-white border border-slate-200 rounded-xl shadow-md overflow-hidden ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}>
                       <div className="p-5">
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">{m.time}</span>
+                          <span className="text-xs font-mono font-bold text-primary-700 bg-primary-50 px-2 py-0.5 rounded">{m.time}</span>
                           <span className={`text-[10px] font-bold uppercase tracking-wider text-white ${m.appColor} px-2 py-0.5 rounded`}>{m.app}</span>
                           <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide">@ {m.tenant}</span>
                         </div>
@@ -169,12 +169,12 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
 
   if (type === 'kanban') {
     return (
-      <div className="border-t border-slate-100 bg-gradient-to-br from-emerald-50/40 to-white px-4 py-3">
+      <div className="border-t border-slate-100 bg-gradient-to-br from-primary-50/40 to-white px-4 py-3">
         <div className="grid grid-cols-3 gap-1.5">
           {[
             { name: 'Por hacer', color: 'bg-slate-100', count: 3 },
             { name: 'En curso', color: 'bg-amber-100', count: 2, highlight: true },
-            { name: 'Listas', color: 'bg-emerald-100', count: 4 },
+            { name: 'Listas', color: 'bg-primary-100', count: 4 },
           ].map((c) => (
             <div key={c.name} className={`${c.color} rounded-md p-1.5 ${c.highlight ? 'ring-2 ring-amber-300' : ''}`}>
               <div className="text-[8px] font-bold uppercase text-slate-700">{c.name}</div>
@@ -186,7 +186,7 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
             </div>
           ))}
         </div>
-        <div className="mt-2 text-[9px] text-emerald-700 font-semibold flex items-center gap-1">
+        <div className="mt-2 text-[9px] text-primary-700 font-semibold flex items-center gap-1">
           <span>→</span>
           <span>"Inventario semanal" pasó a En curso</span>
         </div>

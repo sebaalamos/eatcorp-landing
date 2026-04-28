@@ -35,9 +35,9 @@ const columns = [
     key: 'eatcorp' as const,
     title: 'EatCorp',
     subtitle: 'Hecho para ti',
-    accent: 'border-emerald-300 bg-emerald-50/60',
-    titleColor: 'text-emerald-700',
-    subColor: 'text-emerald-600',
+    accent: 'border-primary-300 bg-primary-50/60',
+    titleColor: 'text-primary-700',
+    subColor: 'text-primary-600',
     highlight: true,
   },
 ]
@@ -47,8 +47,8 @@ function CellIcon({ value, size = 'md' }: { value: Cell; size?: 'md' | 'sm' }) {
   const icon = size === 'sm' ? 12 : 16
   if (value === 'yes')
     return (
-      <div className={`${dim} rounded-full bg-emerald-100 flex items-center justify-center`}>
-        <Check size={icon} className="text-emerald-700" />
+      <div className={`${dim} rounded-full bg-primary-100 flex items-center justify-center`}>
+        <Check size={icon} className="text-primary-700" />
       </div>
     )
   if (value === 'no')
@@ -69,7 +69,7 @@ export function Comparison() {
     <section className="py-24 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Comparativa
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -88,7 +88,7 @@ export function Comparison() {
                 {columns.map((c) => (
                   <th
                     key={c.key}
-                    className={`text-center py-4 px-3 text-sm font-semibold ${c.titleColor} ${c.highlight ? 'bg-emerald-50/60' : ''}`}
+                    className={`text-center py-4 px-3 text-sm font-semibold ${c.titleColor} ${c.highlight ? 'bg-primary-50/60' : ''}`}
                   >
                     <div>{c.title}</div>
                     <div className={`text-[10px] font-normal mt-0.5 uppercase tracking-wider ${c.subColor}`}>{c.subtitle}</div>
@@ -102,7 +102,7 @@ export function Comparison() {
                   <td className="py-4 px-6 text-sm text-slate-800 font-medium">{r.feature}</td>
                   <td className="py-4 px-3"><div className="flex justify-center"><CellIcon value={r.manual} /></div></td>
                   <td className="py-4 px-3"><div className="flex justify-center"><CellIcon value={r.generic} /></div></td>
-                  <td className="py-4 px-3 bg-emerald-50/60"><div className="flex justify-center"><CellIcon value={r.eatcorp} /></div></td>
+                  <td className="py-4 px-3 bg-primary-50/60"><div className="flex justify-center"><CellIcon value={r.eatcorp} /></div></td>
                 </tr>
               ))}
             </tbody>
@@ -113,14 +113,14 @@ export function Comparison() {
           {columns.map((c) => (
             <div
               key={c.key}
-              className={`relative rounded-2xl border-2 shadow-md overflow-hidden ${c.highlight ? 'border-emerald-400' : 'border-slate-200'}`}
+              className={`relative rounded-2xl border-2 shadow-md overflow-hidden ${c.highlight ? 'border-primary-400' : 'border-slate-200'}`}
             >
               {c.highlight && (
-                <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider bg-emerald-600 text-white px-2 py-0.5 rounded-full">
+                <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider bg-primary-600 text-white px-2 py-0.5 rounded-full">
                   Recomendado
                 </div>
               )}
-              <div className={`px-5 py-4 border-b ${c.highlight ? 'bg-emerald-50 border-emerald-200' : 'bg-slate-50 border-slate-200'}`}>
+              <div className={`px-5 py-4 border-b ${c.highlight ? 'bg-primary-50 border-primary-200' : 'bg-slate-50 border-slate-200'}`}>
                 <h3 className={`text-lg font-bold ${c.titleColor}`}>{c.title}</h3>
                 <p className={`text-[11px] uppercase tracking-wider font-semibold ${c.subColor}`}>{c.subtitle}</p>
               </div>
@@ -137,7 +137,7 @@ export function Comparison() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-6 text-xs text-slate-500">
-          <div className="flex items-center gap-1.5"><Check size={14} className="text-emerald-600" /> Sí</div>
+          <div className="flex items-center gap-1.5"><Check size={14} className="text-primary-600" /> Sí</div>
           <div className="flex items-center gap-1.5"><Minus size={14} className="text-amber-600" /> Parcial</div>
           <div className="flex items-center gap-1.5"><X size={14} className="text-red-600" /> No</div>
         </div>

@@ -18,7 +18,7 @@ const testimonials = [
     restaurant: 'Tigre',
     location: 'Bellavista',
     initials: 'TG',
-    gradient: 'from-emerald-400 to-teal-500',
+    gradient: 'from-primary-400 to-teal-500',
     apps: ['LikeEat', 'TaskEat'],
   },
   {
@@ -38,7 +38,7 @@ export function Testimonials() {
     <section className="py-24 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Testimonios
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -55,7 +55,7 @@ export function Testimonials() {
               key={t.restaurant}
               className="bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 p-6 shadow-md hover:shadow-xl transition-shadow flex flex-col"
             >
-              <Quote size={28} className="text-emerald-600 mb-4 opacity-60" />
+              <Quote size={28} className="text-primary-600 mb-4 opacity-60" />
 
               <p className="text-slate-700 leading-relaxed mb-6 flex-1">
                 &ldquo;{t.quote}&rdquo;
@@ -78,7 +78,7 @@ export function Testimonials() {
                 {t.apps.map((app) => (
                   <span
                     key={app}
-                    className="text-[10px] font-semibold uppercase tracking-wide text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded"
+                    className="text-[10px] font-semibold uppercase tracking-wide text-primary-800 bg-primary-50 border border-primary-200 px-2 py-0.5 rounded"
                   >
                     {app}
                   </span>

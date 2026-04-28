@@ -24,7 +24,7 @@ const apps: AppDef[] = [
 
 const accentClasses: Record<string, string> = {
   blue: 'bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-400',
-  emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:border-emerald-400',
+  emerald: 'bg-primary-50 text-primary-700 border-primary-200 hover:border-primary-400',
   pink: 'bg-pink-50 text-pink-700 border-pink-200 hover:border-pink-400',
   amber: 'bg-amber-50 text-amber-700 border-amber-200 hover:border-amber-400',
   cyan: 'bg-cyan-50 text-cyan-700 border-cyan-200 hover:border-cyan-400',
@@ -41,7 +41,7 @@ export function Apps() {
     <section id="apps" className="py-24 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Toda la suite
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">6 apps, una sola plataforma</h2>
@@ -88,7 +88,7 @@ export function Apps() {
 function AppPreview({ type, accent }: { type: AppDef['preview']; accent: string }) {
   const bgMap: Record<string, string> = {
     blue: 'from-blue-100/80 via-blue-50 to-transparent',
-    emerald: 'from-emerald-100/80 via-emerald-50 to-transparent',
+    emerald: 'from-primary-100/80 via-primary-50 to-transparent',
     pink: 'from-pink-100/80 via-pink-50 to-transparent',
     amber: 'from-amber-100/80 via-amber-50 to-transparent',
     cyan: 'from-cyan-100/80 via-cyan-50 to-transparent',
@@ -127,10 +127,10 @@ function KanbanPreview() {
     <div className="grid grid-cols-3 gap-1 h-full">
       {[2, 3, 1].map((c, i) => (
         <div key={i} className="bg-white/80 rounded p-1">
-          <div className="h-0.5 w-2/3 bg-emerald-400 rounded mb-1"></div>
+          <div className="h-0.5 w-2/3 bg-primary-400 rounded mb-1"></div>
           <div className="space-y-0.5">
             {Array.from({ length: c }).map((_, j) => (
-              <div key={j} className="h-1.5 bg-emerald-100 rounded"></div>
+              <div key={j} className="h-1.5 bg-primary-100 rounded"></div>
             ))}
           </div>
         </div>
@@ -158,7 +158,7 @@ function PostPreview() {
 
 function AssetsPreview() {
   const items = [
-    { color: 'bg-emerald-400', w: 'w-1/3' },
+    { color: 'bg-primary-400', w: 'w-1/3' },
     { color: 'bg-rose-400', w: 'w-full' },
     { color: 'bg-amber-400', w: 'w-3/4' },
   ]

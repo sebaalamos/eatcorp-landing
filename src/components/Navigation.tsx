@@ -43,7 +43,7 @@ export function Navigation() {
           <button
             onClick={handleClick}
             disabled={isLoading}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 shadow-sm"
+            className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 shadow-sm"
           >
             {isLoading ? '...' : isLoggedIn ? 'Mi cuenta' : 'Entrar'}
           </button>

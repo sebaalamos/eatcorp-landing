@@ -43,7 +43,7 @@ export function ROICalculator() {
 
   const breakdown = [
     { label: 'Compras', icon: ShoppingCart, value: ahorroCompras, color: 'bg-blue-500' },
-    { label: 'Equipo', icon: Users, value: ahorroEquipo, color: 'bg-emerald-500' },
+    { label: 'Equipo', icon: Users, value: ahorroEquipo, color: 'bg-primary-500' },
     { label: 'RRSS', icon: Share2, value: ahorroPosts, color: 'bg-pink-500' },
     { label: 'Mantenimiento', icon: Wrench, value: ahorroMantenimiento, color: 'bg-amber-500' },
     { label: 'Multi-local', icon: MapPin, value: ahorroLocales, color: 'bg-violet-500' },
@@ -52,10 +52,10 @@ export function ROICalculator() {
   const maxValue = Math.max(...breakdown.map((b) => b.value), 1)
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-br from-emerald-50 via-white to-amber-50">
+    <section className="py-24 px-4 bg-gradient-to-br from-primary-50 via-white to-amber-50">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Calculadora de ahorro
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -77,7 +77,7 @@ export function ROICalculator() {
                     onClick={() => setStyle(s)}
                     className={`text-xs font-semibold py-2.5 px-2 rounded-lg border-2 transition ${
                       style === s
-                        ? 'bg-emerald-600 text-white border-emerald-600 shadow-md'
+                        ? 'bg-primary-600 text-white border-primary-600 shadow-md'
                         : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
                     }`}
                   >
@@ -137,11 +137,11 @@ export function ROICalculator() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-6 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl"></div>
+          <div className="bg-gradient-to-br from-brand-900 to-brand-800 rounded-xl p-6 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/20 rounded-full blur-3xl"></div>
             <div className="relative space-y-5">
               <div>
-                <div className="flex items-center gap-2 text-emerald-400 text-xs font-semibold mb-2 uppercase tracking-wide">
+                <div className="flex items-center gap-2 text-primary-400 text-xs font-semibold mb-2 uppercase tracking-wide">
                   <DollarSign size={14} />
                   Ahorro mensual estimado
                 </div>
@@ -154,7 +154,7 @@ export function ROICalculator() {
                 </div>
               </div>
 
-              <div className="space-y-2 pt-4 border-t border-slate-700">
+              <div className="space-y-2 pt-4 border-t border-brand-700">
                 <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Desglose por área</div>
                 {breakdown.map((b) => {
                   const Icon = b.icon
@@ -168,7 +168,7 @@ export function ROICalculator() {
                         </div>
                         <span className="font-semibold tabular-nums text-white">{formatCLP(b.value)}</span>
                       </div>
-                      <div className="h-1 bg-slate-700/60 rounded-full overflow-hidden">
+                      <div className="h-1 bg-brand-700/60 rounded-full overflow-hidden">
                         <div
                           className={`h-full ${b.color} rounded-full origin-left`}
                           style={{ width: `${percent}%`, transition: 'width 0.4s cubic-bezier(0.4,0,0.2,1)' }}
@@ -179,7 +179,7 @@ export function ROICalculator() {
                 })}
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-700">
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-brand-700">
                 <div>
                   <div className="flex items-center gap-1.5 text-slate-400 text-[10px] mb-1 uppercase tracking-wider">
                     <Clock size={10} />
@@ -229,7 +229,7 @@ function SliderInput({ label, icon: Icon, value, min, max, step, onChange, colSp
           <Icon size={12} className="text-slate-500" />
           {label}
         </label>
-        <span className="text-xl font-bold text-emerald-700 tabular-nums">{value}</span>
+        <span className="text-xl font-bold text-primary-700 tabular-nums">{value}</span>
       </div>
       <input
         type="range"

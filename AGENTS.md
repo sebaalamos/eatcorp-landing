@@ -15,7 +15,7 @@ Este repo es **`eatcorp-landing`** (Next.js, dominio `eatcorp.cl`). La fuente de
 
 1. **Antes de tocar tokens en `src/app/globals.css`**, favicon, OG images, tipografía o copy de marca → leer el `BRAND.md` remoto.
 2. **No introducir colores nuevos sin justificación**. Usar los tokens definidos: `primary-*` (esmeralda), `accent-*` (terracota), `warning-*` (ámbar), `danger-*` (rojo), `brand-*` (slate fijo), `neutral-*` (slate invertible).
-3. **Hoy los componentes usan Tailwind nativo** (`emerald-*`, `amber-*`, `slate-*`) en lugar de los tokens custom. Eso es histórico — cuando refactorices o agregues componentes, prefiere los tokens (`primary-*` en vez de `emerald-*`) para que un cambio de paleta se propague sin tocar componentes.
+3. **Usa siempre los tokens custom**, no clases Tailwind nativas de color. Los componentes están migrados: `primary-*` (no `emerald-*`), `brand-*` (no `slate-8xx/9xx` en fondos oscuros). Las `slate-*` que quedan son texto y bordes sobre fondo claro — utilidad neutral aceptable. Sub-marcas decorativas en Apps showcase (pink, violet, rose, cyan) son intencionales.
 4. **Sincronización manual**: cuando cambien los tokens en el repo `EatCorp` (la app), copiar el bloque `@theme` de `src/index.css` (allá) a `src/app/globals.css` (acá). No hay automation — disciplina manual.
 5. **Assets de marca** (`favicon.svg`, `og-image.png`, `apple-touch-icon.png`) viven también en el repo `EatCorp` bajo `public/`. Cuando se regeneren allá, copiarlos a `public/` de este repo.
 

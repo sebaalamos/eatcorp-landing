@@ -24,10 +24,10 @@ export function Newsletter() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 md:p-10 border border-slate-700 mb-12">
+    <div className="bg-gradient-to-br from-brand-900 to-brand-800 rounded-2xl p-8 md:p-10 border border-brand-700 mb-12">
       <div className="grid md:grid-cols-5 gap-6 items-center">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2 text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-2">
+          <div className="flex items-center gap-2 text-primary-400 text-xs font-semibold uppercase tracking-widest mb-2">
             <Mail size={14} />
             Newsletter
           </div>
@@ -46,11 +46,11 @@ export function Newsletter() {
             placeholder="tu@restaurante.cl"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:bg-slate-900 transition"
+            className="flex-1 px-4 py-3 rounded-lg bg-brand-800 border border-brand-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-500 focus:bg-brand-900 transition"
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold rounded-lg transition flex items-center justify-center gap-2 whitespace-nowrap"
+            className="px-6 py-3 bg-primary-500 hover:bg-primary-400 text-slate-900 font-semibold rounded-lg transition flex items-center justify-center gap-2 whitespace-nowrap"
           >
             {submitted ? (
               <>

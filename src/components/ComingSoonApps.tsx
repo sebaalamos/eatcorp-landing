@@ -15,7 +15,7 @@ const upcoming: Upcoming[] = [
     name: 'PayEat',
     description: 'Cobros con tarjeta + propinas digitales',
     eta: 'Q3 2026',
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-primary-500 to-teal-500',
     wireframe: 'pos',
   },
   {
@@ -83,7 +83,7 @@ export function ComingSoonApps() {
         </div>
 
         <p className="text-center text-sm text-slate-500 mt-8">
-          ¿Tienes una idea? <a href="mailto:hola@eatcorp.cl" className="text-emerald-700 hover:underline font-medium">Cuéntanos</a> qué app necesitas.
+          ¿Tienes una idea? <a href="mailto:hola@eatcorp.cl" className="text-primary-700 hover:underline font-medium">Cuéntanos</a> qué app necesitas.
         </p>
       </div>
     </section>
@@ -98,14 +98,14 @@ function Wireframe({ type }: { type: Upcoming['wireframe'] }) {
           {Array.from({ length: 9 }).map((_, i) => (
             <div
               key={i}
-              className="aspect-square rounded border-2 border-dashed border-emerald-400/60 flex items-center justify-center"
+              className="aspect-square rounded border-2 border-dashed border-primary-400/60 flex items-center justify-center"
             >
-              <div className="w-2 h-2 rounded-full bg-emerald-400/40"></div>
+              <div className="w-2 h-2 rounded-full bg-primary-400/40"></div>
             </div>
           ))}
         </div>
-        <div className="mt-2 h-3 rounded border-2 border-dashed border-emerald-400/60 opacity-40 flex items-center justify-end px-1">
-          <div className="w-8 h-1 bg-emerald-400/60 rounded"></div>
+        <div className="mt-2 h-3 rounded border-2 border-dashed border-primary-400/60 opacity-40 flex items-center justify-end px-1">
+          <div className="w-8 h-1 bg-primary-400/60 rounded"></div>
         </div>
       </div>
     )

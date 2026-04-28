@@ -24,7 +24,7 @@ export function HowItWorks() {
     <section className="py-24 px-4 bg-slate-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Cómo funciona
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -38,11 +38,11 @@ export function HowItWorks() {
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((s, i) => (
             <div key={s.n} className="relative bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl transition-shadow">
-              <div className="text-7xl font-bold text-emerald-100 mb-4 leading-none">{s.n}</div>
+              <div className="text-7xl font-bold text-primary-100 mb-4 leading-none">{s.n}</div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">{s.title}</h3>
               <p className="text-slate-600 leading-relaxed mb-4">{s.description}</p>
-              <div className="text-sm font-medium text-emerald-700 flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-emerald-500"></span>
+              <div className="text-sm font-medium text-primary-700 flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-primary-500"></span>
                 {s.detail}
               </div>
               {i < steps.length - 1 && (

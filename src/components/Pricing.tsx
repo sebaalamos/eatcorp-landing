@@ -73,7 +73,7 @@ export function Pricing() {
     <section id="pricing" className="py-24 px-4 bg-slate-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
             Precios simples
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -87,7 +87,7 @@ export function Pricing() {
             <button
               onClick={() => setAnnual(false)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
-                !annual ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 hover:text-slate-900'
+                !annual ? 'bg-primary-600 text-white shadow' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Mensual
@@ -95,7 +95,7 @@ export function Pricing() {
             <button
               onClick={() => setAnnual(true)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition flex items-center gap-2 ${
-                annual ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 hover:text-slate-900'
+                annual ? 'bg-primary-600 text-white shadow' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Anual
@@ -118,7 +118,7 @@ export function Pricing() {
                 key={plan.name}
                 className={`relative rounded-2xl p-8 flex flex-col ${
                   plan.popular
-                    ? 'bg-slate-900 text-white border-2 border-emerald-500 shadow-2xl md:scale-105'
+                    ? 'bg-brand-900 text-white border-2 border-primary-500 shadow-2xl md:scale-105'
                     : 'bg-white border border-slate-200'
                 }`}
               >
@@ -149,7 +149,7 @@ export function Pricing() {
                           </span>
                         </div>
                         {annual && (
-                          <div className={`text-xs mt-1 ${plan.popular ? 'text-emerald-400' : 'text-emerald-700'}`}>
+                          <div className={`text-xs mt-1 ${plan.popular ? 'text-primary-400' : 'text-primary-700'}`}>
                             Facturado anualmente · Ahorra {formatUF(plan.monthly * 12 * 0.2)} UF al año
                           </div>
                         )}
@@ -167,7 +167,7 @@ export function Pricing() {
                     <li key={f} className="flex items-start gap-2 text-sm">
                       <Check
                         size={16}
-                        className={`flex-shrink-0 mt-0.5 ${plan.popular ? 'text-emerald-400' : 'text-emerald-600'}`}
+                        className={`flex-shrink-0 mt-0.5 ${plan.popular ? 'text-primary-400' : 'text-primary-600'}`}
                       />
                       <span className={plan.popular ? 'text-slate-200' : 'text-slate-700'}>{f}</span>
                     </li>
@@ -177,8 +177,8 @@ export function Pricing() {
                 <button
                   className={`w-full py-3 rounded-lg font-semibold transition ${
                     plan.popular
-                      ? 'bg-emerald-500 hover:bg-emerald-400 text-slate-900'
-                      : 'bg-slate-900 hover:bg-slate-800 text-white'
+                      ? 'bg-primary-500 hover:bg-primary-400 text-slate-900'
+                      : 'bg-brand-900 hover:bg-brand-800 text-white'
                   }`}
                 >
                   {plan.cta}

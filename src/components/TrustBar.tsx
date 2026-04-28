@@ -19,7 +19,7 @@ export function TrustBar() {
             return (
               <div key={item.label} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-emerald-700" />
+                  <Icon size={18} className="text-primary-700" />
                 </div>
                 <div>
                   <div className="font-semibold text-sm text-slate-900">{item.label}</div>
