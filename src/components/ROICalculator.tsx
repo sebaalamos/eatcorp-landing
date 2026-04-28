@@ -52,24 +52,24 @@ export function ROICalculator() {
   const maxValue = Math.max(...breakdown.map((b) => b.value), 1)
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-br from-primary-50 via-white to-amber-50">
+    <section className="py-24 px-4 bg-gradient-to-br from-brand-900 via-brand-950 to-brand-900">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-500/15 text-primary-300 text-xs font-semibold uppercase tracking-wide border border-primary-500/30">
             Calculadora de ahorro
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4">
             ¿Cuánto te ahorra EatCorp?
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Cuéntanos cómo operas hoy y ve el ahorro estimado en tiempo real.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 md:p-8">
+        <div className="grid lg:grid-cols-2 gap-8 bg-brand-900 rounded-2xl shadow-2xl shadow-black/40 border border-slate-800 p-6 md:p-8">
           <div className="space-y-6">
             <div>
-              <label className="text-sm font-semibold text-slate-700 mb-2 block">¿Cómo operas hoy?</label>
+              <label className="text-sm font-semibold text-slate-200 mb-2 block">¿Cómo operas hoy?</label>
               <div className="grid grid-cols-3 gap-2">
                 {(['manual', 'mixed', 'software'] as OperationStyle[]).map((s) => (
                   <button
@@ -77,8 +77,8 @@ export function ROICalculator() {
                     onClick={() => setStyle(s)}
                     className={`text-xs font-semibold py-2.5 px-2 rounded-lg border-2 transition ${
                       style === s
-                        ? 'bg-primary-600 text-white border-primary-600 shadow-md'
-                        : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
+                        ? 'bg-primary-600 text-white border-primary-500 shadow-md shadow-primary-600/30'
+                        : 'bg-brand-800 text-slate-300 border-slate-700 hover:border-slate-500'
                     }`}
                   >
                     {styleLabel[s]}
@@ -137,8 +137,8 @@ export function ROICalculator() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-brand-900 to-brand-800 rounded-xl p-6 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/20 rounded-full blur-3xl"></div>
+          <div className="bg-gradient-to-br from-brand-950 to-brand-800 rounded-xl p-6 text-white relative overflow-hidden border border-slate-700">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/30 rounded-full blur-3xl"></div>
             <div className="relative space-y-5">
               <div>
                 <div className="flex items-center gap-2 text-primary-400 text-xs font-semibold mb-2 uppercase tracking-wide">
@@ -225,11 +225,11 @@ function SliderInput({ label, icon: Icon, value, min, max, step, onChange, colSp
   return (
     <div className={colSpan === 2 ? 'col-span-2' : ''}>
       <div className="flex justify-between items-baseline mb-1.5">
-        <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-          <Icon size={12} className="text-slate-500" />
+        <label className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+          <Icon size={12} className="text-slate-400" />
           {label}
         </label>
-        <span className="text-xl font-bold text-primary-700 tabular-nums">{value}</span>
+        <span className="text-xl font-bold text-primary-300 tabular-nums">{value}</span>
       </div>
       <input
         type="range"
@@ -240,10 +240,10 @@ function SliderInput({ label, icon: Icon, value, min, max, step, onChange, colSp
         onChange={(e) => onChange(Number(e.target.value))}
         className="w-full h-2 rounded-full appearance-none cursor-pointer slider-emerald"
         style={{
-          background: `linear-gradient(to right, #059669 0%, #10b981 ${percent}%, #e2e8f0 ${percent}%, #e2e8f0 100%)`,
+          background: `linear-gradient(to right, #10b981 0%, #34d399 ${percent}%, #1e293b ${percent}%, #1e293b 100%)`,
         }}
       />
-      <div className="flex justify-between text-[9px] text-slate-400 mt-0.5">
+      <div className="flex justify-between text-[9px] text-slate-500 mt-0.5">
         <span>{min}</span>
         <span>{max}</span>
       </div>
@@ -253,19 +253,19 @@ function SliderInput({ label, icon: Icon, value, min, max, step, onChange, colSp
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: white;
-          border: 3px solid #059669;
+          background: #f8fafc;
+          border: 3px solid #10b981;
           cursor: pointer;
-          box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+          box-shadow: 0 2px 12px rgba(16, 185, 129, 0.5);
         }
         .slider-emerald::-moz-range-thumb {
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: white;
-          border: 3px solid #059669;
+          background: #f8fafc;
+          border: 3px solid #10b981;
           cursor: pointer;
-          box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+          box-shadow: 0 2px 12px rgba(16, 185, 129, 0.5);
         }
       `}</style>
     </div>

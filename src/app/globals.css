@@ -60,16 +60,36 @@
   --color-app-staffeat:    #14b8a6;
   --color-app-feedbackeat: #f59e0b;
 
+  /* ─── Neutrals (invertidos — landing en dark fijo) ───
+     Espejan los valores que la app autenticada usa bajo
+     [data-theme="dark"]. Si en el futuro queremos toggle
+     light/dark, mover estos a un selector y restaurar los
+     valores originales en :root. */
+  --color-neutral-0:   #111827;
+  --color-neutral-50:  #0d1117;
+  --color-neutral-100: #161d2a;
+  --color-neutral-200: #1f2d3d;
+  --color-neutral-300: #334155;
+  --color-neutral-400: #475569;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #94a3b8;
+  --color-neutral-700: #cbd5e1;
+  --color-neutral-800: #e2e8f0;
+  --color-neutral-900: #f8fafc;
+
   /* ─── Tipografía ─── */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  background: #020617;
+  color-scheme: dark;
 }
 
 body {
-  background: #ffffff;
+  background: #020617;
+  color: #f1f5f9;
   font-family: var(--font-sans);
   letter-spacing: -0.01em;
 }
@@ -96,6 +116,17 @@ h1, h2, h3 {
 @keyframes slide-up {
   from { transform: scaleY(0); }
   to { transform: scaleY(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 32px rgba(16, 185, 129, 0.4); }
+  50% { box-shadow: 0 0 48px rgba(16, 185, 129, 0.6); }
+}
+
+@keyframes count-pop {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.06); }
+  100% { transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

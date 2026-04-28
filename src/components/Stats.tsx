@@ -59,15 +59,15 @@ function CountUp({ end, suffix, prefix }: { end: number; suffix: string; prefix?
 
 export function Stats() {
   return (
-    <section className="py-20 px-4 bg-white border-y border-slate-200">
+    <section className="py-20 px-4 bg-brand-950 border-y border-slate-800">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-slate-900 mb-2 tabular-nums tracking-tight">
+              <div className="text-5xl md:text-6xl font-bold text-slate-100 mb-2 tabular-nums tracking-tight">
                 <CountUp end={s.value} suffix={s.suffix} prefix={s.prefix} />
               </div>
-              <div className="text-sm text-slate-600">{s.label}</div>
+              <div className="text-sm text-slate-400">{s.label}</div>
             </div>
           ))}
         </div>

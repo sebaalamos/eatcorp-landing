@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -7,18 +7,21 @@ const inter = Inter({
   subsets: ['latin'],
 })
 
+export const viewport: Viewport = {
+  themeColor: '#020617',
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://eatcorp.cl'),
-  title: 'EatCorp — El motor de tu restaurante',
+  title: 'EatCorp — El motor de tu restorán',
   description:
     'Compras, equipo, redes sociales y reservas — todo conectado en una sola plataforma, con IA donde más importa.',
-  themeColor: '#0f172a',
   icons: {
     icon: '/favicon.svg',
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'EatCorp — El motor de tu restaurante',
+    title: 'EatCorp — El motor de tu restorán',
     description:
       'Compras, equipo, redes sociales y reservas — todo conectado en una sola plataforma, con IA donde más importa.',
     url: 'https://eatcorp.cl',
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EatCorp — El motor de tu restaurante',
+    title: 'EatCorp — El motor de tu restorán',
     description:
       'Compras, equipo, redes sociales y reservas — todo conectado en una sola plataforma, con IA donde más importa.',
     images: ['/og-image.png'],

@@ -35,7 +35,7 @@ export function Newsletter() {
             Mantente al día
           </h3>
           <p className="text-sm text-slate-300">
-            Tips, casos de éxito y novedades para restaurantes. Una vez al mes, sin spam.
+            Tips, casos de éxito y novedades para restoranes. Una vez al mes, sin spam.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export function Newsletter() {
           <input
             type="email"
             required
-            placeholder="tu@restaurante.cl"
+            placeholder="tu@restoran.cl"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="flex-1 px-4 py-3 rounded-lg bg-brand-800 border border-brand-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-500 focus:bg-brand-900 transition"

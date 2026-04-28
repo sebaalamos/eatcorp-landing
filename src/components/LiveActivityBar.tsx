@@ -13,8 +13,11 @@ const messages = [
   { icon: '⚡', text: 'Discrepancia detectada y resuelta automáticamente' },
 ]
 
+const SAVED_BASE = 18_420_000
+
 export function LiveActivityBar() {
   const [index, setIndex] = useState(0)
+  const [saved, setSaved] = useState(SAVED_BASE)
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -23,25 +26,46 @@ export function LiveActivityBar() {
     return () => clearInterval(id)
   }, [])
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSaved((s) => s + Math.floor(Math.random() * 7000) + 1500)
+    }, 2200)
+    return () => clearInterval(id)
+  }, [])
+
+  const formatted = saved.toLocaleString('es-CL')
+
   return (
     <div className="bg-brand-900 border-y border-brand-800 py-3 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-center gap-3">
-        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/30">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse"></span>
-          <span className="text-[10px] font-bold tracking-wider text-primary-400 uppercase">En vivo</span>
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/30 flex-shrink-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse"></span>
+            <span className="text-[10px] font-bold tracking-wider text-primary-400 uppercase">En vivo</span>
+          </div>
+          <div className="relative h-6 flex-1 overflow-hidden">
+            {messages.map((m, i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 flex items-center gap-2 text-sm text-slate-300 transition-all duration-700 ${
+                  i === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                }`}
+              >
+                <span className="text-base">{m.icon}</span>
+                <span className="truncate">{m.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="relative h-6 flex-1 max-w-2xl overflow-hidden">
-          {messages.map((m, i) => (
-            <div
-              key={i}
-              className={`absolute inset-0 flex items-center gap-2 text-sm text-slate-300 transition-all duration-700 ${
-                i === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-              }`}
-            >
-              <span className="text-base">{m.icon}</span>
-              <span>{m.text}</span>
-            </div>
-          ))}
+        <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Ahorrado hoy</span>
+          <span
+            key={saved}
+            className="text-sm font-bold text-primary-300 tabular-nums"
+            style={{ animation: 'count-pop 0.4s ease-out' }}
+          >
+            ${formatted}
+          </span>
         </div>
       </div>
     </div>

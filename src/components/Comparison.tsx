@@ -3,7 +3,7 @@ import { Check, X, Minus } from 'lucide-react'
 type Cell = 'yes' | 'no' | 'partial'
 
 const rows: { feature: string; manual: Cell; generic: Cell; eatcorp: Cell }[] = [
-  { feature: 'Específico para restaurantes', manual: 'no', generic: 'no', eatcorp: 'yes' },
+  { feature: 'Específico para restoranes', manual: 'no', generic: 'no', eatcorp: 'yes' },
   { feature: 'Multi-app integrado (compras + tareas + RRSS + ...)', manual: 'no', generic: 'partial', eatcorp: 'yes' },
   { feature: 'Soporte y UI en castellano', manual: 'partial', generic: 'partial', eatcorp: 'yes' },
   { feature: 'Hecho en Chile, datos en Chile', manual: 'no', generic: 'no', eatcorp: 'yes' },
@@ -19,25 +19,25 @@ const columns = [
     key: 'manual' as const,
     title: 'Excel + WhatsApp',
     subtitle: 'El método tradicional',
-    accent: 'border-slate-200 bg-slate-50',
-    titleColor: 'text-slate-700',
+    accent: 'border-slate-700 bg-brand-800/40',
+    titleColor: 'text-slate-300',
     subColor: 'text-slate-500',
   },
   {
     key: 'generic' as const,
     title: 'Software genérico',
     subtitle: 'ERP, CRM globales',
-    accent: 'border-slate-200 bg-slate-50',
-    titleColor: 'text-slate-700',
+    accent: 'border-slate-700 bg-brand-800/40',
+    titleColor: 'text-slate-300',
     subColor: 'text-slate-500',
   },
   {
     key: 'eatcorp' as const,
     title: 'EatCorp',
     subtitle: 'Hecho para ti',
-    accent: 'border-primary-300 bg-primary-50/60',
-    titleColor: 'text-primary-700',
-    subColor: 'text-primary-600',
+    accent: 'border-primary-500/40 bg-primary-500/10',
+    titleColor: 'text-primary-300',
+    subColor: 'text-primary-400',
     highlight: true,
   },
 ]
@@ -47,48 +47,48 @@ function CellIcon({ value, size = 'md' }: { value: Cell; size?: 'md' | 'sm' }) {
   const icon = size === 'sm' ? 12 : 16
   if (value === 'yes')
     return (
-      <div className={`${dim} rounded-full bg-primary-100 flex items-center justify-center`}>
-        <Check size={icon} className="text-primary-700" />
+      <div className={`${dim} rounded-full bg-primary-500/20 border border-primary-500/40 flex items-center justify-center`}>
+        <Check size={icon} className="text-primary-300" />
       </div>
     )
   if (value === 'no')
     return (
-      <div className={`${dim} rounded-full bg-red-100 flex items-center justify-center`}>
-        <X size={icon} className="text-red-600" />
+      <div className={`${dim} rounded-full bg-red-500/20 border border-red-500/40 flex items-center justify-center`}>
+        <X size={icon} className="text-red-400" />
       </div>
     )
   return (
-    <div className={`${dim} rounded-full bg-amber-100 flex items-center justify-center`}>
-      <Minus size={icon} className="text-amber-700" />
+    <div className={`${dim} rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center`}>
+      <Minus size={icon} className="text-amber-300" />
     </div>
   )
 }
 
 export function Comparison() {
   return (
-    <section className="py-24 px-4 bg-white">
+    <section className="py-24 px-4 bg-brand-900">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-500/15 text-primary-300 text-xs font-semibold uppercase tracking-wide border border-primary-500/30">
             Comparativa
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4">
             ¿Por qué EatCorp?
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Comparado con cómo se opera hoy en la mayoría de restaurantes.
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            Comparado con cómo se opera hoy en la mayoría de restoranes.
           </p>
         </div>
 
-        <div className="hidden md:block bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden">
+        <div className="hidden md:block bg-brand-950 rounded-2xl border border-slate-800 shadow-lg overflow-hidden">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-slate-200 bg-slate-50">
-                <th className="text-left py-4 px-6 text-sm font-semibold text-slate-700 w-2/5">Característica</th>
+              <tr className="border-b border-slate-800 bg-brand-800/60">
+                <th className="text-left py-4 px-6 text-sm font-semibold text-slate-300 w-2/5">Característica</th>
                 {columns.map((c) => (
                   <th
                     key={c.key}
-                    className={`text-center py-4 px-3 text-sm font-semibold ${c.titleColor} ${c.highlight ? 'bg-primary-50/60' : ''}`}
+                    className={`text-center py-4 px-3 text-sm font-semibold ${c.titleColor} ${c.highlight ? 'bg-primary-500/10' : ''}`}
                   >
                     <div>{c.title}</div>
                     <div className={`text-[10px] font-normal mt-0.5 uppercase tracking-wider ${c.subColor}`}>{c.subtitle}</div>
@@ -98,11 +98,11 @@ export function Comparison() {
             </thead>
             <tbody>
               {rows.map((r, i) => (
-                <tr key={r.feature} className={`border-b border-slate-100 ${i % 2 === 1 ? 'bg-slate-50/50' : ''}`}>
-                  <td className="py-4 px-6 text-sm text-slate-800 font-medium">{r.feature}</td>
+                <tr key={r.feature} className={`border-b border-slate-800 ${i % 2 === 1 ? 'bg-brand-800/30' : ''}`}>
+                  <td className="py-4 px-6 text-sm text-slate-200 font-medium">{r.feature}</td>
                   <td className="py-4 px-3"><div className="flex justify-center"><CellIcon value={r.manual} /></div></td>
                   <td className="py-4 px-3"><div className="flex justify-center"><CellIcon value={r.generic} /></div></td>
-                  <td className="py-4 px-3 bg-primary-50/60"><div className="flex justify-center"><CellIcon value={r.eatcorp} /></div></td>
+                  <td className="py-4 px-3 bg-primary-500/10"><div className="flex justify-center"><CellIcon value={r.eatcorp} /></div></td>
                 </tr>
               ))}
             </tbody>
@@ -113,22 +113,22 @@ export function Comparison() {
           {columns.map((c) => (
             <div
               key={c.key}
-              className={`relative rounded-2xl border-2 shadow-md overflow-hidden ${c.highlight ? 'border-primary-400' : 'border-slate-200'}`}
+              className={`relative rounded-2xl border-2 shadow-md overflow-hidden ${c.highlight ? 'border-primary-500/50 bg-brand-800' : 'border-slate-800 bg-brand-900'}`}
             >
               {c.highlight && (
                 <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider bg-primary-600 text-white px-2 py-0.5 rounded-full">
                   Recomendado
                 </div>
               )}
-              <div className={`px-5 py-4 border-b ${c.highlight ? 'bg-primary-50 border-primary-200' : 'bg-slate-50 border-slate-200'}`}>
+              <div className={`px-5 py-4 border-b ${c.highlight ? 'bg-primary-500/15 border-primary-500/30' : 'bg-brand-800/60 border-slate-800'}`}>
                 <h3 className={`text-lg font-bold ${c.titleColor}`}>{c.title}</h3>
                 <p className={`text-[11px] uppercase tracking-wider font-semibold ${c.subColor}`}>{c.subtitle}</p>
               </div>
-              <ul className="divide-y divide-slate-100">
+              <ul className="divide-y divide-slate-800">
                 {rows.map((r) => (
                   <li key={r.feature} className="flex items-center gap-3 px-5 py-3">
                     <CellIcon value={r[c.key]} size="sm" />
-                    <span className="text-sm text-slate-700 flex-1 leading-snug">{r.feature}</span>
+                    <span className="text-sm text-slate-300 flex-1 leading-snug">{r.feature}</span>
                   </li>
                 ))}
               </ul>
@@ -136,10 +136,10 @@ export function Comparison() {
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-6 text-xs text-slate-500">
-          <div className="flex items-center gap-1.5"><Check size={14} className="text-primary-600" /> Sí</div>
-          <div className="flex items-center gap-1.5"><Minus size={14} className="text-amber-600" /> Parcial</div>
-          <div className="flex items-center gap-1.5"><X size={14} className="text-red-600" /> No</div>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-6 text-xs text-slate-400">
+          <div className="flex items-center gap-1.5"><Check size={14} className="text-primary-300" /> Sí</div>
+          <div className="flex items-center gap-1.5"><Minus size={14} className="text-amber-300" /> Parcial</div>
+          <div className="flex items-center gap-1.5"><X size={14} className="text-red-400" /> No</div>
         </div>
       </div>
     </section>

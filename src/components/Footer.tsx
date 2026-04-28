@@ -5,7 +5,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-brand-950 text-slate-400 py-16 px-4">
+    <footer className="bg-brand-950 text-slate-400 py-16 px-4 border-t border-slate-800">
       <div className="max-w-6xl mx-auto">
         <Newsletter />
 
@@ -13,7 +13,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <Logo size={36} textColor="text-white" />
             <p className="text-sm mt-4 leading-relaxed">
-              Plataforma de gestión integral para restaurantes en Chile.
+              Plataforma de gestión integral para restoranes en Chile.
             </p>
           </div>
           <div>

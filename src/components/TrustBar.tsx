@@ -11,19 +11,19 @@ const tech = ['Supabase', 'Vercel', 'Resend', 'Sentry']
 
 export function TrustBar() {
   return (
-    <section className="py-16 px-4 bg-white border-t border-slate-200">
+    <section className="py-16 px-4 bg-brand-900 border-t border-slate-800">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {items.map((item) => {
             const Icon = item.icon
             return (
-              <div key={item.label} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-primary-700" />
+              <div key={item.label} className="flex items-start gap-3 p-4 bg-brand-800/60 rounded-xl border border-slate-700">
+                <div className="w-10 h-10 rounded-lg bg-brand-950 border border-slate-700 flex items-center justify-center flex-shrink-0">
+                  <Icon size={18} className="text-primary-300" />
                 </div>
                 <div>
-                  <div className="font-semibold text-sm text-slate-900">{item.label}</div>
-                  <div className="text-xs text-slate-500">{item.sub}</div>
+                  <div className="font-semibold text-sm text-slate-100">{item.label}</div>
+                  <div className="text-xs text-slate-400">{item.sub}</div>
                 </div>
               </div>
             )
@@ -34,9 +34,9 @@ export function TrustBar() {
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">
             Construido con tecnología confiable
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-6 opacity-70">
+          <div className="flex flex-wrap justify-center items-center gap-6 opacity-80">
             {tech.map((t) => (
-              <div key={t} className="font-mono text-sm text-slate-500 px-3 py-1 border border-slate-200 rounded">
+              <div key={t} className="font-mono text-sm text-slate-400 px-3 py-1 border border-slate-700 bg-brand-950/40 rounded">
                 {t}
               </div>
             ))}

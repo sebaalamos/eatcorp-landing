@@ -66,22 +66,22 @@ const moments: Moment[] = [
 
 export function ADayWithEatCorp() {
   return (
-    <section className="py-24 px-4 bg-white">
+    <section className="py-24 px-4 bg-brand-900">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wide">
+          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-500/15 text-primary-300 text-xs font-semibold uppercase tracking-wide border border-primary-500/30">
             Un día con EatCorp
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4">
             Así se vive un día normal
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Desde que abre el restaurante hasta que cierra, cada momento conectado.
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            Desde que abre el restorán hasta que cierra, cada momento conectado.
           </p>
         </div>
 
         <div className="relative">
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200 -translate-x-px"></div>
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-700 via-primary-500 to-primary-700 -translate-x-px"></div>
 
           <div className="space-y-12">
             {moments.map((m, i) => {
@@ -91,20 +91,20 @@ export function ADayWithEatCorp() {
                 <div key={m.time} className={`relative flex md:items-center gap-6 ${isLeft ? '' : 'md:flex-row-reverse'}`}>
                   <div className="hidden md:block flex-1"></div>
 
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-primary-500 shadow-lg flex items-center justify-center z-10">
-                    <Icon size={20} className="text-primary-700" />
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-brand-950 border-4 border-primary-500 shadow-lg shadow-primary-500/40 flex items-center justify-center z-10 ring-4 ring-primary-500/10 hover:ring-primary-400/30 transition">
+                    <Icon size={20} className="text-primary-300" />
                   </div>
 
                   <div className="ml-20 md:ml-0 flex-1">
-                    <div className={`bg-white border border-slate-200 rounded-xl shadow-md overflow-hidden ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}>
+                    <div className={`bg-brand-800 border border-slate-700 rounded-xl shadow-lg shadow-black/40 overflow-hidden hover:border-primary-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-500/10 transition-all ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}>
                       <div className="p-5">
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="text-xs font-mono font-bold text-primary-700 bg-primary-50 px-2 py-0.5 rounded">{m.time}</span>
-                          <span className={`text-[10px] font-bold uppercase tracking-wider text-white ${m.appColor} px-2 py-0.5 rounded`}>{m.app}</span>
-                          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide">@ {m.tenant}</span>
+                          <span className="text-sm font-mono font-bold text-primary-300 bg-primary-500/15 border border-primary-500/30 px-2 py-0.5 rounded shadow-sm shadow-primary-500/20">{m.time}</span>
+                          <span className={`text-[10px] font-bold uppercase tracking-wider text-white ${m.appColor} px-2 py-0.5 rounded shadow-sm`}>{m.app}</span>
+                          <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide">@ {m.tenant}</span>
                         </div>
-                        <h3 className="text-lg font-bold text-slate-900 mb-1">{m.title}</h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">{m.description}</p>
+                        <h3 className="text-lg font-bold text-slate-100 mb-1">{m.title}</h3>
+                        <p className="text-sm text-slate-300 leading-relaxed">{m.description}</p>
                       </div>
                       <MiniMockup type={m.mockup} />
                     </div>
@@ -122,21 +122,21 @@ export function ADayWithEatCorp() {
 function MiniMockup({ type }: { type: Moment['mockup'] }) {
   if (type === 'recepcion') {
     return (
-      <div className="border-t border-slate-100 bg-gradient-to-br from-blue-50/40 to-white px-4 py-3">
+      <div className="border-t border-slate-700 bg-gradient-to-br from-blue-500/10 to-transparent px-4 py-3">
         <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center">
-            <Truck size={16} className="text-blue-700" />
+          <div className="w-9 h-9 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+            <Truck size={16} className="text-blue-300" />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-[11px] font-semibold text-slate-900">Factura Distribuidora Central</div>
-            <div className="text-[9px] text-slate-500">$1.240.000 · 12 ítems</div>
+            <div className="text-[11px] font-semibold text-slate-100">Factura Distribuidora Central</div>
+            <div className="text-[9px] text-slate-400">$1.240.000 · 12 ítems</div>
           </div>
-          <span className="text-[9px] font-bold uppercase tracking-wide bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded animate-pulse">
+          <span className="text-[9px] font-bold uppercase tracking-wide bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded animate-pulse">
             Discrepancia
           </span>
         </div>
-        <div className="mt-2 flex items-center gap-1.5 text-[9px] text-slate-600">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        <div className="mt-2 flex items-center gap-1.5 text-[9px] text-slate-300">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
           <span>Detectado: 2 unidades menos en aceite oliva</span>
         </div>
       </div>
@@ -145,23 +145,23 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
 
   if (type === 'pagos') {
     return (
-      <div className="border-t border-slate-100 bg-gradient-to-br from-blue-50/40 to-white px-4 py-3">
+      <div className="border-t border-slate-700 bg-gradient-to-br from-blue-500/10 to-transparent px-4 py-3">
         <div className="flex items-center justify-between mb-1.5">
-          <div className="text-[10px] font-semibold text-slate-700">Lote del día</div>
-          <span className="text-[9px] text-slate-500">8 facturas</span>
+          <div className="text-[10px] font-semibold text-slate-200">Lote del día</div>
+          <span className="text-[9px] text-slate-400">8 facturas</span>
         </div>
         <div className="space-y-1">
           {['Distribuidora Central', 'Carnes del Sur', 'Bebidas Nacional'].map((n, i) => (
             <div key={n} className="flex items-center gap-1.5 text-[10px]">
-              <div className="w-3 h-3 rounded-sm bg-blue-600 flex items-center justify-center text-white text-[8px] leading-none">✓</div>
-              <span className="flex-1 truncate text-slate-700">{n}</span>
-              <span className="text-slate-500">${(i + 1) * 480}K</span>
+              <div className="w-3 h-3 rounded-sm bg-blue-500 flex items-center justify-center text-white text-[8px] leading-none shadow-sm shadow-blue-500/40">✓</div>
+              <span className="flex-1 truncate text-slate-300">{n}</span>
+              <span className="text-slate-400">${(i + 1) * 480}K</span>
             </div>
           ))}
         </div>
-        <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between">
-          <span className="text-[10px] font-bold text-slate-700">Total $2.640.500</span>
-          <span className="text-[9px] font-bold uppercase bg-blue-600 text-white px-2 py-0.5 rounded">Aprobado</span>
+        <div className="mt-2 pt-2 border-t border-slate-700 flex items-center justify-between">
+          <span className="text-[10px] font-bold text-slate-100">Total $2.640.500</span>
+          <span className="text-[9px] font-bold uppercase bg-blue-600 text-white px-2 py-0.5 rounded shadow-sm shadow-blue-500/30">Aprobado</span>
         </div>
       </div>
     )
@@ -169,24 +169,24 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
 
   if (type === 'kanban') {
     return (
-      <div className="border-t border-slate-100 bg-gradient-to-br from-primary-50/40 to-white px-4 py-3">
+      <div className="border-t border-slate-700 bg-gradient-to-br from-primary-500/10 to-transparent px-4 py-3">
         <div className="grid grid-cols-3 gap-1.5">
           {[
-            { name: 'Por hacer', color: 'bg-slate-100', count: 3 },
-            { name: 'En curso', color: 'bg-amber-100', count: 2, highlight: true },
-            { name: 'Listas', color: 'bg-primary-100', count: 4 },
+            { name: 'Por hacer', color: 'bg-brand-900 border-slate-700', count: 3 },
+            { name: 'En curso', color: 'bg-amber-500/15 border-amber-500/30', count: 2, highlight: true },
+            { name: 'Listas', color: 'bg-primary-500/15 border-primary-500/30', count: 4 },
           ].map((c) => (
-            <div key={c.name} className={`${c.color} rounded-md p-1.5 ${c.highlight ? 'ring-2 ring-amber-300' : ''}`}>
-              <div className="text-[8px] font-bold uppercase text-slate-700">{c.name}</div>
+            <div key={c.name} className={`${c.color} border rounded-md p-1.5 ${c.highlight ? 'ring-1 ring-amber-500/40' : ''}`}>
+              <div className="text-[8px] font-bold uppercase text-slate-200">{c.name}</div>
               <div className="mt-1 space-y-0.5">
                 {Array.from({ length: c.count }).map((_, j) => (
-                  <div key={j} className="h-1.5 bg-white rounded-sm border border-slate-200"></div>
+                  <div key={j} className="h-1.5 bg-brand-800 rounded-sm border border-slate-700"></div>
                 ))}
               </div>
             </div>
           ))}
         </div>
-        <div className="mt-2 text-[9px] text-primary-700 font-semibold flex items-center gap-1">
+        <div className="mt-2 text-[9px] text-primary-300 font-semibold flex items-center gap-1">
           <span>→</span>
           <span>"Inventario semanal" pasó a En curso</span>
         </div>
@@ -196,22 +196,22 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
 
   if (type === 'post') {
     return (
-      <div className="border-t border-slate-100 bg-gradient-to-br from-pink-50/40 to-white px-4 py-3">
+      <div className="border-t border-slate-700 bg-gradient-to-br from-pink-500/10 to-transparent px-4 py-3">
         <div className="flex gap-2.5">
-          <div className="w-12 h-12 rounded-md bg-gradient-to-br from-amber-200 to-rose-300 flex items-center justify-center text-2xl flex-shrink-0">
+          <div className="w-12 h-12 rounded-md bg-gradient-to-br from-amber-400 to-rose-500 flex items-center justify-center text-2xl flex-shrink-0 shadow-md shadow-pink-500/30">
             🍷
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 mb-1">
-              <Sparkles size={9} className="text-pink-600" />
-              <span className="text-[9px] font-bold uppercase text-pink-700">Generando…</span>
+              <Sparkles size={9} className="text-pink-400 animate-pulse" />
+              <span className="text-[9px] font-bold uppercase text-pink-300">Generando…</span>
             </div>
-            <div className="text-[10px] text-slate-700 leading-snug line-clamp-2">
-              "Esta noche, una copa que abraza. Reservas mesa para hoy en Tigre 🍷"
+            <div className="text-[10px] text-slate-200 leading-snug line-clamp-2">
+              &ldquo;Esta noche, una copa que abraza. Reservas mesa para hoy en Tigre 🍷&rdquo;
             </div>
             <div className="flex gap-1 mt-1">
-              <span className="text-[9px] text-pink-600">#tigre</span>
-              <span className="text-[9px] text-pink-600">#bellavista</span>
+              <span className="text-[9px] text-pink-400">#tigre</span>
+              <span className="text-[9px] text-pink-400">#bellavista</span>
             </div>
           </div>
         </div>
@@ -221,16 +221,16 @@ function MiniMockup({ type }: { type: Moment['mockup'] }) {
 
   // alerta
   return (
-    <div className="border-t border-slate-100 bg-gradient-to-br from-rose-50/40 to-white px-4 py-3">
+    <div className="border-t border-slate-700 bg-gradient-to-br from-rose-500/10 to-transparent px-4 py-3">
       <div className="flex items-center gap-2.5">
-        <div className="w-9 h-9 rounded-lg bg-rose-100 flex items-center justify-center">
-          <AlertTriangle size={16} className="text-rose-600 animate-pulse" />
+        <div className="w-9 h-9 rounded-lg bg-rose-500/20 border border-rose-500/30 flex items-center justify-center">
+          <AlertTriangle size={16} className="text-rose-300 animate-pulse" />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-[11px] font-semibold text-slate-900">Cámara fría #1</div>
-          <div className="text-[9px] text-slate-600">Revisión vencida hace 4 días · técnico JC asignado</div>
+          <div className="text-[11px] font-semibold text-slate-100">Cámara fría #1</div>
+          <div className="text-[9px] text-slate-400">Revisión vencida hace 4 días · técnico JC asignado</div>
         </div>
-        <span className="text-[9px] font-bold uppercase tracking-wide bg-rose-100 text-rose-700 px-1.5 py-0.5 rounded">Mañana</span>
+        <span className="text-[9px] font-bold uppercase tracking-wide bg-rose-500/20 text-rose-300 border border-rose-500/30 px-1.5 py-0.5 rounded">Mañana</span>
       </div>
     </div>
   )

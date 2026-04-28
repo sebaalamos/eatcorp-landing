@@ -4,7 +4,7 @@ type LogoProps = {
   textColor?: string
 }
 
-export function Logo({ size = 40, showText = true, textColor = 'text-gray-900' }: LogoProps) {
+export function Logo({ size = 40, showText = true, textColor = 'text-slate-100' }: LogoProps) {
   return (
     <div className="flex items-center gap-3">
       <svg
@@ -15,8 +15,16 @@ export function Logo({ size = 40, showText = true, textColor = 'text-gray-900' }
         height={size}
         className="flex-shrink-0"
       >
-        <rect width="64" height="64" rx="13" fill="#a31818" />
-        <path d="M19 16 H45 V24 H27.5 V28 H41 V35 H27.5 V40 H45 V48 H19 Z" fill="#fef3e2" />
+        <defs>
+          <clipPath id="eatcorp-logo-clip">
+            <rect width="64" height="64" rx="13" />
+          </clipPath>
+        </defs>
+        <g clipPath="url(#eatcorp-logo-clip)">
+          <rect width="64" height="64" fill="#10b981" />
+          <path d="M44 0 H64 V20 Z" fill="#e1623d" />
+          <path d="M19 16 H45 V24 H27.5 V28 H41 V35 H27.5 V40 H45 V48 H19 Z" fill="#faf7f2" />
+        </g>
       </svg>
       {showText && (
         <span className={`text-2xl font-bold ${textColor}`}>EatCorp</span>
