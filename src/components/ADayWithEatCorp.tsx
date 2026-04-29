@@ -46,7 +46,7 @@ const moments: Moment[] = [
     time: '17:00',
     icon: Camera,
     title: 'Post para la noche',
-    description: 'LikeEat sugiere el post de hoy basado en efeméride chilena. Aprobado en un click.',
+    description: 'LikeEat sugiere el post de hoy basado en una efeméride local. Aprobado en un click.',
     app: 'LikeEat',
     appColor: 'bg-pink-500',
     tenant: 'Tigre',

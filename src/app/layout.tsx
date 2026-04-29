@@ -15,14 +15,14 @@ export const viewport: Viewport = {
 
 const TITLE = 'EatCorp — La plataforma todo-en-uno para tu restorán'
 const DESCRIPTION =
-  'Compras, tareas, redes sociales con IA, reservas y mantención. Reemplaza el Excel y los grupos de WhatsApp. Hecho en Chile, en castellano, listo en 30 minutos.'
+  'Plataforma SaaS para restoranes en LatAm: compras, tareas, redes sociales con IA, reservas y mantención. Reemplaza el Excel y los grupos de WhatsApp. En castellano, listo en 30 minutos.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://eatcorp.cl'),
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
-    'software restorán Chile',
+    'software restorán LatAm',
     'gestión restaurante',
     'compras restaurante',
     'tareas cocina',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'EatCorp',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'EatCorp' }],
     type: 'website',
-    locale: 'es_CL',
+    locale: 'es_419',
   },
   twitter: {
     card: 'summary_large_image',

@@ -27,7 +27,7 @@ export function Hero() {
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-primary-500/10 border border-primary-500/30">
           <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse"></span>
-          <span className="text-sm font-medium text-primary-300">Hecho en Chile para restoranes chilenos</span>
+          <span className="text-sm font-medium text-primary-300">La plataforma para restoranes que crecen</span>
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold text-slate-100 mb-6 leading-tight tracking-tight">
@@ -40,7 +40,7 @@ export function Hero() {
 
         <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
           Reemplaza el Excel, los grupos de WhatsApp y las cinco pestañas abiertas.
-          Compra, opera, agenda y publica desde un solo lugar. Hecho en Chile, en castellano,
+          Compra, opera, agenda y publica desde un solo lugar. En castellano,
           listo en 30 minutos.
         </p>
 

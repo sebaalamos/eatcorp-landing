@@ -38,7 +38,7 @@ export function Features() {
             iconBg="bg-pink-500"
             title="LikeEat"
             tagline="Redes sociales con IA"
-            description="Plan mensual generado por IA con efemérides chilenas. Magic Post: una foto y la IA escribe el caption. Brand Discovery aprende tu estilo."
+            description="Plan mensual generado por IA con efemérides locales. Magic Post: una foto y la IA escribe el caption. Brand Discovery aprende tu estilo."
             mockup={<LikeEatMockup />}
             reverse={false}
           />
