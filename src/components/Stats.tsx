@@ -10,12 +10,12 @@ const facts: Fact[] = [
   {
     icon: Sparkles,
     title: 'Early access',
-    description: 'Trabajando con los primeros restoranes en Chile.',
+    description: 'Trabajando con los primeros restoranes en sumarse.',
   },
   {
     icon: Languages,
     title: 'Castellano nativo',
-    description: 'UI, soporte y onboarding en español de Chile.',
+    description: 'UI, soporte y onboarding en castellano.',
   },
   {
     icon: Zap,

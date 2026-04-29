@@ -6,7 +6,7 @@ const rows: { feature: string; manual: Cell; generic: Cell; eatcorp: Cell }[] = 
   { feature: 'Específico para restoranes', manual: 'no', generic: 'no', eatcorp: 'yes' },
   { feature: 'Multi-app integrado (compras + tareas + RRSS + ...)', manual: 'no', generic: 'partial', eatcorp: 'yes' },
   { feature: 'Soporte y UI en castellano', manual: 'partial', generic: 'partial', eatcorp: 'yes' },
-  { feature: 'Hecho en Chile, datos en Chile', manual: 'no', generic: 'no', eatcorp: 'yes' },
+  { feature: 'Hecho para LatAm, en castellano', manual: 'no', generic: 'no', eatcorp: 'yes' },
   { feature: 'IA para redes sociales', manual: 'no', generic: 'no', eatcorp: 'yes' },
   { feature: 'Lotes de pago bancario (export Excel)', manual: 'partial', generic: 'no', eatcorp: 'yes' },
   { feature: 'Permisos granulares por app', manual: 'no', generic: 'partial', eatcorp: 'yes' },

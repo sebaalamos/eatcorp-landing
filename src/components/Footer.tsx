@@ -14,7 +14,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <Logo size={36} textColor="text-white" />
             <p className="text-sm mt-4 leading-relaxed">
-              Plataforma de gestión integral para restoranes en Chile.
+              Plataforma de gestión integral para restoranes en LatAm.
             </p>
           </div>
           <div>
@@ -46,7 +46,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-brand-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p className="flex items-center gap-1.5">&copy; {currentYear} EatCorp. Hecho en Chile con <Leaf size={13} className="text-primary-400" />.</p>
+          <p className="flex items-center gap-1.5">&copy; {currentYear} EatCorp. Hecho con <Leaf size={13} className="text-primary-400" /> para LatAm.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition">Instagram</a>
             <a href="#" className="hover:text-white transition">LinkedIn</a>

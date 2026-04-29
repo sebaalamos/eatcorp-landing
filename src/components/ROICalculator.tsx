@@ -27,19 +27,19 @@ export function ROICalculator() {
 
   const m = styleMultiplier[style]
 
-  // Breakdown del ahorro mensual (CLP)
-  const ahorroCompras = Math.round(facturas * 800 * m)
-  const ahorroEquipo = Math.round(equipo * 1200 * 4 * m)
-  const ahorroLocales = Math.round(locales * 5000 * m)
-  const ahorroPosts = Math.round(posts * 4500 * m) // tiempo + valor RRSS
-  const ahorroMantenimiento = Math.round(activos * 8000 * m) // evita paradas sorpresa
+  // Breakdown del ahorro mensual (USD)
+  const ahorroCompras = Math.round(facturas * 1 * m)
+  const ahorroEquipo = Math.round(equipo * 5 * m)
+  const ahorroLocales = Math.round(locales * 5 * m)
+  const ahorroPosts = Math.round(posts * 5 * m) // tiempo + valor RRSS
+  const ahorroMantenimiento = Math.round(activos * 8 * m) // evita paradas sorpresa
 
   const ahorroMensual = ahorroCompras + ahorroEquipo + ahorroLocales + ahorroPosts + ahorroMantenimiento
   const horasMes = Math.round(facturas * 0.15 + equipo * 4 + locales * 8 + posts * 0.4 + activos * 0.5)
-  const costoPlan = locales <= 1 && equipo <= 5 ? 38000 : 95000 // 1 UF / 2.5 UF aprox CLP
+  const costoPlan = locales <= 1 && equipo <= 5 ? 40 : 100 // Starter / Pro USD
   const recuperoDias = Math.max(1, Math.round((costoPlan / Math.max(ahorroMensual, 1)) * 30))
 
-  const formatCLP = (n: number) => `$${n.toLocaleString('es-CL')}`
+  const formatUSD = (n: number) => `$${n.toLocaleString('en-US')}`
 
   const breakdown = [
     { label: 'Compras', icon: ShoppingCart, value: ahorroCompras, color: 'bg-blue-500' },
@@ -150,7 +150,7 @@ export function ROICalculator() {
                   className="text-4xl md:text-5xl font-bold tabular-nums tracking-tight"
                   style={{ animation: 'count-pop 0.4s ease-out' }}
                 >
-                  {formatCLP(ahorroMensual)}
+                  {formatUSD(ahorroMensual)}
                 </div>
               </div>
 
@@ -166,7 +166,7 @@ export function ROICalculator() {
                           <Icon size={11} />
                           <span>{b.label}</span>
                         </div>
-                        <span className="font-semibold tabular-nums text-white">{formatCLP(b.value)}</span>
+                        <span className="font-semibold tabular-nums text-white">{formatUSD(b.value)}</span>
                       </div>
                       <div className="h-1 bg-brand-700/60 rounded-full overflow-hidden">
                         <div

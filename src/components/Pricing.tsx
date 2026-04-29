@@ -23,7 +23,7 @@ const plans: Plan[] = [
   {
     name: 'Starter',
     slug: 'starter',
-    monthly: 1,
+    monthly: 40,
     description: 'Para restoranes que recién empiezan',
     features: [
       '2 apps a elección',
@@ -41,7 +41,7 @@ const plans: Plan[] = [
   {
     name: 'Pro',
     slug: 'pro',
-    monthly: 2.5,
+    monthly: 100,
     description: 'El más elegido por nuestros clientes',
     popular: true,
     features: [
@@ -87,7 +87,8 @@ export function Pricing() {
   const [annual, setAnnual] = useState(true)
   const [activePlan, setActivePlan] = useState<Plan | null>(null)
 
-  const formatUF = (n: number) => n.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 2 })
+  const formatUSD = (n: number) =>
+    `$${n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: Number.isInteger(n) ? 0 : 1 })}`
 
   return (
     <section id="pricing" className="py-24 px-4 bg-brand-950">
@@ -162,15 +163,15 @@ export function Pricing() {
                       <>
                         <div className="flex items-baseline gap-1">
                           <span className={`text-4xl font-bold tabular-nums ${plan.popular ? 'text-white' : 'text-slate-100'}`}>
-                            {formatUF(price)}
+                            {formatUSD(price)}
                           </span>
                           <span className={`text-sm ${plan.popular ? 'text-slate-400' : 'text-slate-500'}`}>
-                            UF/mes
+                            USD/mes
                           </span>
                         </div>
                         {annual && (
                           <div className={`text-xs mt-1 ${plan.popular ? 'text-primary-300' : 'text-primary-400'}`}>
-                            Facturado anualmente · Ahorra {formatUF(plan.monthly * 12 * 0.2)} UF al año
+                            Facturado anualmente · Ahorra {formatUSD(plan.monthly * 12 * 0.2)} al año
                           </div>
                         )}
                       </>
@@ -211,7 +212,7 @@ export function Pricing() {
         </div>
 
         <p className="text-center text-sm text-slate-400 mt-8">
-          Todos los planes incluyen actualizaciones automáticas, hosting en Chile y backups diarios.
+          Todos los planes incluyen actualizaciones automáticas y backups diarios.
         </p>
       </div>
 

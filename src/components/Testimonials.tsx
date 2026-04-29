@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     quote:
-      'LikeEat nos arma el plan de Instagram con efemérides chilenas. Aprobamos posts en segundos en vez de pasar horas pensando qué publicar.',
+      'LikeEat nos arma el plan de Instagram con efemérides locales. Aprobamos posts en segundos en vez de pasar horas pensando qué publicar.',
     role: 'Equipo de marketing',
     restaurant: 'Tigre',
     location: 'Bellavista',

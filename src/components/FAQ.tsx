@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: '¿Pueden importar mi contabilidad o data actual?',
-    a: 'Sí. Tenemos importadores para Excel, Google Sheets, Defontana y otros sistemas comunes en Chile. En el plan Pro y Enterprise el equipo de EatCorp te ayuda con la importación inicial sin costo adicional.',
+    a: 'Sí. Tenemos importadores para Excel, Google Sheets, Defontana y otros sistemas comunes del rubro. En el plan Pro y Enterprise el equipo de EatCorp te ayuda con la importación inicial sin costo adicional.',
   },
   {
     q: '¿Cuántos usuarios puedo tener?',

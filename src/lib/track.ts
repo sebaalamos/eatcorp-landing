@@ -10,6 +10,7 @@ export type CtaName =
   | 'cta_final_secondary'
   | 'cta_apps_card'
   | 'cta_newsletter_submit'
+  | 'cta_client_logos'
   | 'lead_captured'
 
 export function trackCTA(name: CtaName, props?: Record<string, string | number | boolean>) {

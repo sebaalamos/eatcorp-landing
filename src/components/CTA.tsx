@@ -1,11 +1,20 @@
 'use client'
 
+import { useState } from 'react'
 import { trackCTA } from '@/lib/track'
+import { LeadModal } from './LeadModal'
 
 export function CTA() {
-  const handleClick = () => {
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const handlePrimary = () => {
     trackCTA('cta_final_primary')
     window.location.href = 'https://app.eatcorp.cl/#/'
+  }
+
+  const handleSecondary = () => {
+    trackCTA('cta_final_secondary')
+    setModalOpen(true)
   }
 
   return (
@@ -23,20 +32,30 @@ export function CTA() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={handleClick}
+            onClick={handlePrimary}
             className="bg-primary-600 hover:bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg shadow-primary-600/40"
           >
             Empieza ahora gratis
           </button>
-          <a
-            href="mailto:hola@eatcorp.cl"
-            onClick={() => trackCTA('cta_final_secondary')}
+          <button
+            type="button"
+            onClick={handleSecondary}
             className="border-2 border-slate-700 text-slate-200 hover:border-primary-500 hover:text-primary-300 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
           >
             Hablar con nosotros
-          </a>
+          </button>
         </div>
       </div>
+
+      <LeadModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        source="contact"
+        ctaTrack="cta_final_secondary"
+        title="Hablemos"
+        description="Cuéntanos sobre tu restorán y te contactamos en menos de 24 horas hábiles."
+        withMessage
+      />
     </section>
   )
 }
