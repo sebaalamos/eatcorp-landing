@@ -1,9 +1,16 @@
+'use client'
+
+import { useState } from 'react'
+import { LeadModal } from './LeadModal'
+
 const clients = [
   { name: 'El Toro', tag: 'Restaurant · Las Condes', instagram: 'https://instagram.com/eltoro.cl' },
   { name: 'Tigre', tag: 'Restaurant · Bellavista', instagram: 'https://instagram.com/tigre.cl' },
 ]
 
 export function ClientLogos() {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <section className="py-12 px-4 bg-brand-900 border-b border-slate-800">
       <div className="max-w-6xl mx-auto">
@@ -28,11 +35,25 @@ export function ClientLogos() {
         </div>
         <p className="text-center text-xs text-slate-500 mt-6">
           ¿Tu restorán acá?{' '}
-          <a href="mailto:hola@eatcorp.cl" className="text-primary-300 hover:text-primary-200">
-            hola@eatcorp.cl
-          </a>
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
+            className="text-primary-300 hover:text-primary-200 transition-colors"
+          >
+            Escríbenos
+          </button>
         </p>
       </div>
+
+      <LeadModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        source="contact"
+        ctaTrack="cta_client_logos"
+        title="Súmate a EatCorp"
+        description="Cuéntanos sobre tu restorán y te contactamos en menos de 24 horas hábiles."
+        withMessage
+      />
     </section>
   )
 }
