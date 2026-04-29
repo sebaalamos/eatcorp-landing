@@ -1,4 +1,4 @@
-import { CreditCard, QrCode, BarChart3, Clock, Flame } from 'lucide-react'
+import { CreditCard, QrCode, BarChart3, Clock } from 'lucide-react'
 
 type Upcoming = {
   icon: typeof CreditCard
@@ -56,25 +56,11 @@ const upcoming: Upcoming[] = [
   },
 ]
 
-export function ComingSoonApps() {
+export function ComingSoonGrid() {
   return (
-    <section className="py-24 px-4 bg-brand-950">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-3 rounded-full bg-amber-500/15 text-amber-300 text-xs font-semibold uppercase tracking-wide border border-amber-500/30">
-            <Flame size={12} className="animate-pulse" />
-            En el horno
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-100 mb-3">
-            Lo que viene en el roadmap
-          </h2>
-          <p className="text-lg text-slate-400">
-            Apps en desarrollo basadas en feedback de nuestros restoranes.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-5">
-          {upcoming.map((app, idx) => {
+    <>
+      <div className="grid md:grid-cols-3 gap-5">
+        {upcoming.map((app, idx) => {
             const Icon = app.icon
             return (
               <div
@@ -125,13 +111,12 @@ export function ComingSoonApps() {
               </div>
             )
           })}
-        </div>
-
-        <p className="text-center text-sm text-slate-500 mt-10">
-          ¿Tienes una idea? <a href="mailto:hola@eatcorp.cl" className="text-primary-300 hover:text-primary-200 hover:underline font-medium">Cuéntanos</a> qué app necesitas.
-        </p>
       </div>
-    </section>
+
+      <p className="text-center text-sm text-slate-500 mt-10">
+        ¿Tienes una idea? <a href="mailto:hola@eatcorp.cl" className="text-primary-300 hover:text-primary-200 hover:underline font-medium">Cuéntanos</a> qué app necesitas.
+      </p>
+    </>
   )
 }
 

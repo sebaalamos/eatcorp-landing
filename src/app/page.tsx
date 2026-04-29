@@ -1,44 +1,44 @@
 import { HashRedirect } from '@/components/HashRedirect'
 import { CursorGlow } from '@/components/CursorGlow'
+import { UtmCapture } from '@/components/UtmCapture'
 import { Navigation } from '@/components/Navigation'
 import { Hero } from '@/components/Hero'
-import { LiveActivityBar } from '@/components/LiveActivityBar'
-import { Stats } from '@/components/Stats'
 import { ClientLogos } from '@/components/ClientLogos'
 import { Features } from '@/components/Features'
-import { ADayWithEatCorp } from '@/components/ADayWithEatCorp'
 import { HowItWorks } from '@/components/HowItWorks'
-import { Apps } from '@/components/Apps'
-import { ComingSoonApps } from '@/components/ComingSoonApps'
+import { AppsCatalog } from '@/components/AppsCatalog'
+import { ADayWithEatCorp } from '@/components/ADayWithEatCorp'
 import { ROICalculator } from '@/components/ROICalculator'
+import { Comparison } from '@/components/Comparison'
 import { Testimonials } from '@/components/Testimonials'
 import { Pricing } from '@/components/Pricing'
-import { Comparison } from '@/components/Comparison'
 import { FAQ } from '@/components/FAQ'
+import { Stats } from '@/components/Stats'
 import { TrustBar } from '@/components/TrustBar'
 import { CTA } from '@/components/CTA'
 import { Footer } from '@/components/Footer'
+import { JsonLd } from '@/components/JsonLd'
 
 export default function Home() {
   return (
     <main className="flex flex-col relative">
+      <JsonLd />
       <HashRedirect />
       <CursorGlow />
+      <UtmCapture />
       <Navigation />
       <Hero />
-      <LiveActivityBar />
-      <Stats />
       <ClientLogos />
       <Features />
-      <ADayWithEatCorp />
       <HowItWorks />
-      <Apps />
-      <ComingSoonApps />
+      <AppsCatalog />
+      <ADayWithEatCorp />
       <ROICalculator />
+      <Comparison />
       <Testimonials />
       <Pricing />
-      <Comparison />
       <FAQ />
+      <Stats />
       <TrustBar />
       <CTA />
       <Footer />

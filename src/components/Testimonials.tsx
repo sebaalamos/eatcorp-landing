@@ -3,33 +3,27 @@ import { Quote } from 'lucide-react'
 const testimonials = [
   {
     quote:
-      'Antes nos quedábamos hasta tarde cuadrando facturas en Excel. Ahora la administración aprueba todo el lote en 10 minutos y el archivo bancario sale solo. Tiempo recuperado para lo que importa.',
+      'La administración aprueba el lote del día en 10 minutos y el archivo bancario sale solo. Tiempo recuperado para lo que importa.',
     role: 'Equipo de operaciones',
     restaurant: 'El Toro',
     location: 'Las Condes',
+    instagram: 'https://instagram.com/eltoro.cl',
+    instagramHandle: '@eltoro.cl',
     initials: 'ET',
     gradient: 'from-amber-400 to-orange-500',
     apps: ['BuyEat', 'TaskEat'],
   },
   {
     quote:
-      'LikeEat nos genera el plan mensual de Instagram con efemérides chilenas que ni se nos habrían ocurrido. Aprobamos posts en segundos en lugar de pasarnos horas pensando qué publicar.',
+      'LikeEat nos arma el plan de Instagram con efemérides chilenas. Aprobamos posts en segundos en vez de pasar horas pensando qué publicar.',
     role: 'Equipo de marketing',
     restaurant: 'Tigre',
     location: 'Bellavista',
+    instagram: 'https://instagram.com/tigre.cl',
+    instagramHandle: '@tigre.cl',
     initials: 'TG',
     gradient: 'from-primary-400 to-teal-500',
     apps: ['LikeEat', 'TaskEat'],
-  },
-  {
-    quote:
-      'Tengo varios locales y antes era imposible saber qué pasaba en cada uno. Ahora veo todo: pagos pendientes, tareas, posts, mantenciones. Hecho en Chile, soporte en castellano, perfecto para nosotros.',
-    role: 'Dueña',
-    restaurant: 'Restaurante familiar',
-    location: 'Anonimato preferido · multi-local',
-    initials: 'DR',
-    gradient: 'from-pink-400 to-rose-500',
-    apps: ['BuyEat', 'TaskEat', 'LikeEat', 'MaintainEat'],
   },
 ]
 
@@ -49,7 +43,7 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {testimonials.map((t) => (
             <div
               key={t.restaurant}
@@ -69,8 +63,17 @@ export function Testimonials() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="font-semibold text-slate-100 text-sm">{t.restaurant}</div>
-                  <div className="text-xs text-slate-400 truncate">{t.role}</div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">{t.location}</div>
+                  <div className="text-xs text-slate-400 truncate">
+                    {t.role} · {t.location}
+                  </div>
+                  <a
+                    href={t.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-primary-300 hover:text-primary-200 mt-0.5 inline-block"
+                  >
+                    {t.instagramHandle} ↗
+                  </a>
                 </div>
               </div>
 

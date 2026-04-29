@@ -31,57 +31,45 @@ const accentClasses: Record<string, string> = {
   violet: 'bg-violet-500/10 text-violet-300 border-violet-500/30 hover:border-violet-400',
 }
 
-export function Apps() {
+export function AppsGrid() {
   const handleAppClick = (appId: string, external: boolean) => {
     if (external) return
     window.location.href = `https://app.eatcorp.cl/#/${appId}`
   }
 
   return (
-    <section id="apps" className="py-24 px-4 bg-brand-900">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-3 rounded-full bg-primary-500/15 text-primary-300 text-xs font-semibold uppercase tracking-wide border border-primary-500/30">
-            Toda la suite
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4">6 apps, una sola plataforma</h2>
-          <p className="text-xl text-slate-400">Activa solo las que tu restorán necesita</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-5">
-          {apps.map((app) => {
-            const Icon = app.icon
-            return (
-              <button
-                key={app.id}
-                onClick={() => handleAppClick(app.id, app.external)}
-                className={`group relative rounded-xl border-2 transition-all duration-300 text-left overflow-hidden ${accentClasses[app.accent]} hover:shadow-2xl hover:shadow-current/20 hover:-translate-y-1 hover:scale-[1.02] [transform:perspective(1000px)] [&:hover]:[transform:perspective(1000px)_rotateX(2deg)_rotateY(-2deg)_translateY(-4px)_scale(1.02)]`}
-              >
-                <AppPreview type={app.preview} accent={app.accent} />
-                <div className="p-5">
-                  {app.external && (
-                    <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wide text-slate-400 bg-brand-950/80 border border-slate-700 px-2 py-0.5 rounded-full">Externa</span>
-                  )}
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-lg bg-brand-950/60 shadow-sm border border-current/30">
-                      <Icon size={20} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-slate-100">{app.name}</h3>
-                      <p className="text-[11px] text-slate-400">{app.description}</p>
-                    </div>
-                  </div>
-                  <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide bg-brand-950/60 backdrop-blur px-2 py-1 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
-                    <span>{app.metric}</span>
-                  </div>
+    <div className="grid md:grid-cols-3 gap-5">
+      {apps.map((app) => {
+        const Icon = app.icon
+        return (
+          <button
+            key={app.id}
+            onClick={() => handleAppClick(app.id, app.external)}
+            className={`group relative rounded-xl border-2 transition-all duration-300 text-left overflow-hidden ${accentClasses[app.accent]} hover:shadow-2xl hover:shadow-current/20 hover:-translate-y-1 hover:scale-[1.02] [transform:perspective(1000px)] [&:hover]:[transform:perspective(1000px)_rotateX(2deg)_rotateY(-2deg)_translateY(-4px)_scale(1.02)]`}
+          >
+            <AppPreview type={app.preview} accent={app.accent} />
+            <div className="p-5">
+              {app.external && (
+                <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wide text-slate-400 bg-brand-950/80 border border-slate-700 px-2 py-0.5 rounded-full">Externa</span>
+              )}
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-2 rounded-lg bg-brand-950/60 shadow-sm border border-current/30">
+                  <Icon size={20} />
                 </div>
-              </button>
-            )
-          })}
-        </div>
-      </div>
-    </section>
+                <div>
+                  <h3 className="font-bold text-slate-100">{app.name}</h3>
+                  <p className="text-[11px] text-slate-400">{app.description}</p>
+                </div>
+              </div>
+              <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide bg-brand-950/60 backdrop-blur px-2 py-1 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
+                <span>{app.metric}</span>
+              </div>
+            </div>
+          </button>
+        )
+      })}
+    </div>
   )
 }
 

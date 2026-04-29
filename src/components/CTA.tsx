@@ -1,7 +1,10 @@
 'use client'
 
+import { trackCTA } from '@/lib/track'
+
 export function CTA() {
   const handleClick = () => {
+    trackCTA('cta_final_primary')
     window.location.href = 'https://app.eatcorp.cl/#/'
   }
 
@@ -27,6 +30,7 @@ export function CTA() {
           </button>
           <a
             href="mailto:hola@eatcorp.cl"
+            onClick={() => trackCTA('cta_final_secondary')}
             className="border-2 border-slate-700 text-slate-200 hover:border-primary-500 hover:text-primary-300 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
           >
             Hablar con nosotros

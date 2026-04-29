@@ -1,29 +1,21 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Bell, TrendingUp, TrendingDown, CheckCircle2 } from 'lucide-react'
-
-const ROTATING_TYPES = ['restorán', 'pizzería', 'cafetería', 'bistró', 'parrilla', 'picada']
+import { Bell, TrendingUp, CheckCircle2 } from 'lucide-react'
+import { trackCTA } from '@/lib/track'
 
 export function Hero() {
-  const handleClick = () => {
+  const handlePrimary = () => {
+    trackCTA('cta_hero_primary')
     window.location.href = 'https://app.eatcorp.cl/#/'
   }
 
   const [showToast, setShowToast] = useState(true)
-  const [typeIdx, setTypeIdx] = useState(0)
 
   useEffect(() => {
     const id = setInterval(() => {
       setShowToast((s) => !s)
     }, 6000)
-    return () => clearInterval(id)
-  }, [])
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setTypeIdx((i) => (i + 1) % ROTATING_TYPES.length)
-    }, 2400)
     return () => clearInterval(id)
   }, [])
 
@@ -41,42 +33,30 @@ export function Hero() {
         <h1 className="text-5xl md:text-7xl font-bold text-slate-100 mb-6 leading-tight tracking-tight">
           La plataforma todo-en-uno
           <br />
-          <span className="whitespace-nowrap">
-            para tu{' '}
-            <span className="relative inline-block align-baseline">
-              {ROTATING_TYPES.map((word, i) => (
-                <span
-                  key={word}
-                  className={`text-primary-400 transition-all duration-500 ${
-                    i === typeIdx ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 absolute inset-0 pointer-events-none'
-                  }`}
-                  style={{ textShadow: i === typeIdx ? '0 0 32px rgba(52, 211, 153, 0.4)' : undefined }}
-                >
-                  {word}
-                </span>
-              ))}
-              <span aria-hidden className="invisible">gastropub</span>
-            </span>
+          <span className="text-primary-400" style={{ textShadow: '0 0 32px rgba(52, 211, 153, 0.4)' }}>
+            para tu restorán
           </span>
         </h1>
 
         <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Compras, tareas, redes sociales, mantenimiento y reservas. Todas las herramientas
-          que tu restorán necesita en una sola plataforma integrada.
+          Reemplaza el Excel, los grupos de WhatsApp y las cinco pestañas abiertas.
+          Compra, opera, agenda y publica desde un solo lugar. Hecho en Chile, en castellano,
+          listo en 30 minutos.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 px-6 sm:px-0">
           <button
-            onClick={handleClick}
+            onClick={handlePrimary}
             className="relative bg-primary-600 hover:bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-[0_0_32px_rgba(16,185,129,0.4)] hover:shadow-[0_0_48px_rgba(16,185,129,0.6)] animate-[pulse-glow_3s_ease-in-out_infinite]"
           >
-            Comienza gratis
+            Probar gratis 14 días
           </button>
           <a
-            href="#apps"
+            href="#how-it-works"
+            onClick={() => trackCTA('cta_hero_secondary')}
             className="border-2 border-slate-700 text-slate-200 hover:border-primary-500 hover:text-primary-300 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
           >
-            Ver las apps
+            Ver cómo funciona
           </a>
         </div>
 

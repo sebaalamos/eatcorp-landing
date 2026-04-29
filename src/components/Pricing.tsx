@@ -2,19 +2,27 @@
 
 import { useState } from 'react'
 import { Check, Sparkles } from 'lucide-react'
+import { LeadModal } from './LeadModal'
+import type { LeadSource } from '@/lib/leads'
+import type { CtaName } from '@/lib/track'
 
 type Plan = {
   name: string
+  slug: 'starter' | 'pro' | 'enterprise'
   monthly: number
   description: string
   features: string[]
   cta: string
   popular?: boolean
+  source: LeadSource
+  ctaTrack: CtaName
+  withMessage: boolean
 }
 
 const plans: Plan[] = [
   {
     name: 'Starter',
+    slug: 'starter',
     monthly: 1,
     description: 'Para restoranes que recién empiezan',
     features: [
@@ -26,9 +34,13 @@ const plans: Plan[] = [
       'Hasta 100 facturas/mes',
     ],
     cta: 'Empieza gratis 14 días',
+    source: 'pricing_starter',
+    ctaTrack: 'cta_pricing_starter',
+    withMessage: false,
   },
   {
     name: 'Pro',
+    slug: 'pro',
     monthly: 2.5,
     description: 'El más elegido por nuestros clientes',
     popular: true,
@@ -44,9 +56,13 @@ const plans: Plan[] = [
       'Auditoría completa',
     ],
     cta: 'Empieza gratis 14 días',
+    source: 'pricing_pro',
+    ctaTrack: 'cta_pricing_pro',
+    withMessage: false,
   },
   {
     name: 'Enterprise',
+    slug: 'enterprise',
     monthly: 0,
     description: 'Para cadenas y operaciones grandes',
     features: [
@@ -61,11 +77,15 @@ const plans: Plan[] = [
       'SSO + auditoría avanzada',
     ],
     cta: 'Hablar con ventas',
+    source: 'pricing_enterprise',
+    ctaTrack: 'cta_pricing_enterprise',
+    withMessage: true,
   },
 ]
 
 export function Pricing() {
   const [annual, setAnnual] = useState(true)
+  const [activePlan, setActivePlan] = useState<Plan | null>(null)
 
   const formatUF = (n: number) => n.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 2 })
 
@@ -175,6 +195,8 @@ export function Pricing() {
                 </ul>
 
                 <button
+                  type="button"
+                  onClick={() => setActivePlan(plan)}
                   className={`w-full py-3 rounded-lg font-semibold transition ${
                     plan.popular
                       ? 'bg-primary-500 hover:bg-primary-400 text-brand-950 shadow-lg shadow-primary-500/30'
@@ -192,6 +214,27 @@ export function Pricing() {
           Todos los planes incluyen actualizaciones automáticas, hosting en Chile y backups diarios.
         </p>
       </div>
+
+      <LeadModal
+        open={activePlan !== null}
+        onClose={() => setActivePlan(null)}
+        source={activePlan?.source ?? 'contact'}
+        plan={activePlan?.slug}
+        ctaTrack={activePlan?.ctaTrack ?? 'cta_pricing_starter'}
+        title={
+          activePlan?.slug === 'enterprise'
+            ? 'Hablemos de tu operación'
+            : `Empieza tu prueba — Plan ${activePlan?.name ?? ''}`
+        }
+        description={
+          activePlan?.slug === 'enterprise'
+            ? 'Cuéntanos sobre tu cadena y te contactamos en menos de 24 horas hábiles.'
+            : 'Te enviamos el acceso para que actives tu prueba gratuita de 14 días.'
+        }
+        withMessage={activePlan?.withMessage ?? false}
+        successCtaHref={activePlan?.slug !== 'enterprise' ? 'https://app.eatcorp.cl/#/' : undefined}
+        successCtaLabel={activePlan?.slug !== 'enterprise' ? 'Ir a app.eatcorp.cl' : undefined}
+      />
     </section>
   )
 }
