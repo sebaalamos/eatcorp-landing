@@ -28,8 +28,8 @@ export default function Home() {
       <CursorGlow />
       <UtmCapture />
       <Navigation />
-      <LiveActivityBar />
       <Hero />
+      <LiveActivityBar />
       <ClientLogos />
       <Features />
       <HowItWorks />
