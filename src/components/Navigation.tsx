@@ -81,7 +81,7 @@ export function Navigation() {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-brand-950/98 backdrop-blur border-b border-slate-800 shadow-2xl">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-brand-950 border-b border-slate-800 shadow-2xl">
           <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col">
             {navLinks.map((link) => (
               <a
