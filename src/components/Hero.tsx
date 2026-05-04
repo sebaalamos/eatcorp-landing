@@ -19,6 +19,21 @@ export function Hero() {
     return () => clearInterval(id)
   }, [])
 
+  const words = ['restorán', 'cafetería', 'bar', 'bistró', 'pastelería']
+  const [wordIndex, setWordIndex] = useState(0)
+  const [wordVisible, setWordVisible] = useState(true)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setWordVisible(false)
+      setTimeout(() => {
+        setWordIndex((i) => (i + 1) % words.length)
+        setWordVisible(true)
+      }, 300)
+    }, 2800)
+    return () => clearInterval(id)
+  }, [])
+
   return (
     <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-brand-900 via-brand-950 to-brand-950 relative overflow-hidden">
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary-700/20 rounded-full blur-3xl"></div>
@@ -33,8 +48,13 @@ export function Hero() {
         <h1 className="text-5xl md:text-7xl font-bold text-slate-100 mb-6 leading-tight tracking-tight">
           La plataforma todo-en-uno
           <br />
-          <span className="text-primary-400" style={{ textShadow: '0 0 32px rgba(52, 211, 153, 0.4)' }}>
-            para tu restorán
+          <span
+            className={`text-primary-400 inline-block transition-all duration-300 ${
+              wordVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            }`}
+            style={{ textShadow: '0 0 32px rgba(52, 211, 153, 0.4)' }}
+          >
+            para tu {words[wordIndex]}
           </span>
         </h1>
 

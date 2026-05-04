@@ -3,6 +3,7 @@ import { CursorGlow } from '@/components/CursorGlow'
 import { UtmCapture } from '@/components/UtmCapture'
 import { Navigation } from '@/components/Navigation'
 import { Hero } from '@/components/Hero'
+import { LiveActivityBar } from '@/components/LiveActivityBar'
 import { ClientLogos } from '@/components/ClientLogos'
 import { Features } from '@/components/Features'
 import { HowItWorks } from '@/components/HowItWorks'
@@ -28,6 +29,7 @@ export default function Home() {
       <UtmCapture />
       <Navigation />
       <Hero />
+      <LiveActivityBar />
       <ClientLogos />
       <Features />
       <HowItWorks />

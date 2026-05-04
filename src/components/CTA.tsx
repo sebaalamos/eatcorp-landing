@@ -45,6 +45,9 @@ export function CTA() {
             Hablar con nosotros
           </button>
         </div>
+        <p className="mt-5 text-sm text-slate-400 text-center">
+          Sin tarjeta de crédito · Sin instalación · Activo en 30 minutos
+        </p>
       </div>
 
       <LeadModal
