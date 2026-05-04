@@ -59,9 +59,8 @@ export function Hero() {
         </h1>
 
         <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Reemplaza el Excel, los grupos de WhatsApp y las cinco pestañas abiertas.
-          Compra, opera, agenda y publica desde un solo lugar. En castellano,
-          listo en 30 minutos.
+          Reemplaza Excel, WhatsApp y las cinco pestañas abiertas. Una plataforma
+          en castellano, lista en 30 minutos.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 px-6 sm:px-0">
