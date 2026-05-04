@@ -1,12 +1,21 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Menu, X } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { Logo } from './Logo'
+
+const navLinks = [
+  { href: '#features', label: 'Apps' },
+  { href: '#pricing', label: 'Precios' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#contacto', label: 'Contacto' },
+]
 
 export function Navigation() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const checkSession = async () => {
@@ -27,6 +36,13 @@ export function Navigation() {
     }
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   const handleClick = () => {
     window.location.href = 'https://app.eatcorp.cl/#/'
   }
@@ -36,10 +52,15 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Logo size={36} />
         <div className="flex items-center gap-6">
-          <a href="#features" className="hidden md:inline text-sm font-medium text-slate-300 hover:text-white transition">Apps</a>
-          <a href="#pricing" className="hidden md:inline text-sm font-medium text-slate-300 hover:text-white transition">Precios</a>
-          <a href="#faq" className="hidden md:inline text-sm font-medium text-slate-300 hover:text-white transition">FAQ</a>
-          <a href="#contacto" className="hidden md:inline text-sm font-medium text-slate-300 hover:text-white transition">Contacto</a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="hidden md:inline text-sm font-medium text-slate-300 hover:text-white transition"
+            >
+              {link.label}
+            </a>
+          ))}
           <button
             onClick={handleClick}
             disabled={isLoading}
@@ -47,8 +68,34 @@ export function Navigation() {
           >
             {isLoading ? '...' : isLoggedIn ? 'Mi cuenta' : 'Entrar'}
           </button>
+          <button
+            type="button"
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-slate-200 hover:bg-brand-800 transition"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-brand-950/98 backdrop-blur border-b border-slate-800 shadow-2xl">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="py-3 text-base font-medium text-slate-200 hover:text-primary-300 border-b border-slate-800 last:border-0 transition"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
