@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { LeadModal } from './LeadModal'
 
 const clients = [
-  { name: 'El Toro', tag: 'Las Condes', instagram: 'https://instagram.com/eltoro.cl', initials: 'ET', gradient: 'from-amber-400 to-orange-500' },
-  { name: 'Tigre', tag: 'Bellavista', instagram: 'https://instagram.com/tigre.cl', initials: 'TG', gradient: 'from-primary-400 to-teal-500' },
+  { name: 'El Toro', tag: 'Vitacura', instagram: 'https://instagram.com/eltoro.cl', initials: 'ET', gradient: 'from-amber-400 to-orange-500' },
+  { name: 'Tigre', tag: 'Vitacura', instagram: 'https://instagram.com/tigre.cl', initials: 'TG', gradient: 'from-primary-400 to-teal-500' },
 ]
 
 export function ClientLogos() {

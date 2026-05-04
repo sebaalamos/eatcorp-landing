@@ -114,7 +114,7 @@ export function Hero() {
                 </div>
                 <div className="text-left">
                   <div className="text-sm font-semibold text-slate-100 leading-tight">El Toro</div>
-                  <div className="text-[10px] text-slate-400">Las Condes · Lunes 28 abr</div>
+                  <div className="text-[10px] text-slate-400">Vitacura · Lunes 28 abr</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">

@@ -123,7 +123,7 @@ function BuyEatMockup() {
         <div className="flex items-center justify-between mb-3">
           <div>
             <div className="text-sm font-semibold text-slate-100">Pagos pendientes</div>
-            <div className="text-[10px] text-slate-400 mt-0.5">El Toro · Las Condes</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">El Toro · Vitacura</div>
           </div>
           <div className="flex gap-1">
             {['Todas', 'Pendientes', 'Aprobadas'].map((f, i) => (
@@ -414,7 +414,7 @@ function MaintainEatMockup() {
         <div className="flex items-center justify-between mb-3">
           <div>
             <div className="text-sm font-semibold text-slate-100">Activos críticos</div>
-            <div className="text-[10px] text-slate-400 mt-0.5">Tigre · Bellavista</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Tigre · Vitacura</div>
           </div>
           <span className="text-[9px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">1 alerta</span>
         </div>
